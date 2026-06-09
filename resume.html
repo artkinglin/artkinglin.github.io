@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Arthur Lin Resume</title>
+  <style>
+    @page { size: letter; margin: .45in .55in; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #151515; font-family: Arial, Helvetica, sans-serif; font-size: 9.2pt; line-height: 1.25; }
+    header { text-align: center; }
+    h1 { margin: 0 0 3px; font-size: 22pt; letter-spacing: .02em; }
+    .contact { font-size: 8.7pt; }
+    .contact a { color: inherit; text-decoration: none; }
+    section { margin-top: 10px; }
+    h2 { margin: 0 0 5px; padding-bottom: 2px; border-bottom: 1.4px solid #111; font-size: 10pt; letter-spacing: .08em; text-transform: uppercase; }
+    .entry { margin-top: 7px; }
+    .entry-head { display: flex; justify-content: space-between; gap: 15px; font-weight: 700; }
+    .entry-sub { display: flex; justify-content: space-between; gap: 15px; font-style: italic; }
+    p { margin: 2px 0; }
+    ul { margin: 3px 0 0 17px; padding: 0; }
+    li { margin: 1.5px 0; }
+    .skills p { margin: 2px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Arthur Lin</h1>
+    <div class="contact">
+      <a href="mailto:artkinglin@gmail.com">artkinglin@gmail.com</a> |
+      (857) 207-0019 |
+      <a href="https://linkedin.com/in/arthur-k-lin/">linkedin.com/in/arthur-k-lin/</a> |
+      <a href="https://github.com/artkinglin">github.com/artkinglin</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head"><span>University of Massachusetts Amherst - Manning College of Information and Computer Sciences</span><span>Amherst, MA</span></div>
+      <div class="entry-sub"><span>B.S. in Computer Science | GPA: 3.88/4</span><span>Expected May 2028</span></div>
+      <p><strong>Relevant Courses:</strong> Data Structures & Algorithms, Calculus III, Statistics, Linear Algebra</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head"><span>Gastric Cancer Detection using Deep Learning | Project Leader</span><span>Sep 2024 - Present</span></div>
+      <ul>
+        <li>Built a hybrid deep-learning CAD system for gastric cancer detection from histopathology images.</li>
+        <li>Used EfficientNetV2-B0 and CatBoost to achieve 93.9% accuracy across 10,000+ scans.</li>
+        <li>Deployed model via Flask/FastAPI REST API and validated interpretability with Grad-CAM and t-SNE.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span>University of Southern California | Machine Learning Intern</span><span>Jun 2024 - Aug 2024</span></div>
+      <ul>
+        <li>Built a semi-supervised ML system using analog VMM on multi-layer memristor crossbars.</li>
+        <li>Addressed device variability, I-V nonlinearity, and sneak-path effects using calibration, nonlinear modeling, and SPICE simulation.</li>
+        <li>Achieved a 6.6% reduction in standard error through hardware-aware optimization.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span>MIT Beaver Works CubeSat Challenge | Lead Programmer</span><span>Dec 2023 - Apr 2024</span></div>
+      <ul>
+        <li>Programmed and tested a microsatellite imaging system for disaster-relief scenarios.</li>
+        <li>Used IMU acceleration data to trigger camera capture and automated image transmission to GitHub.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span>FIRST Tech Challenge, Team #23708 | Team Captain</span><span>Sep 2022 - Feb 2024</span></div>
+      <ul><li>Led mechanical design and programming across the geartrain, drivetrain, and claw while coordinating team workflows.</li></ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span>MIT Beaver Works Summer Institute | Selected Member</span><span>Jul 2023 - Aug 2023</span></div>
+      <ul>
+        <li>Implemented Canny edge detection and Hough transforms for lane-boundary detection in AUV video.</li>
+        <li>Generated navigation decisions and validated perception outputs using Matplotlib and AprilTag detection.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span>MIT Beaver Works CREATE Challenge | Team Captain</span><span>Dec 2022 - Apr 2023</span></div>
+      <ul>
+        <li>Guided prototyping and testing of an assistive walker with button-controlled braking.</li>
+        <li>Received the Best Co-Designer Collaboration Award among 30+ national teams.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <p><strong>Programming Languages:</strong> Python, Java, C++</p>
+    <p><strong>Libraries & Tools:</strong> NumPy, Matplotlib, PyTorch, Pandas, Keras, CatBoost, scikit-learn, OpenCV, Flask, FastAPI, Git, SPICE</p>
+  </section>
+
+  <section>
+    <h2>Selected Programs, Awards & Honors</h2>
+    <ul>
+      <li>Gold Division, United States of America Computing Olympiad (USACO)</li>
+      <li>Bronze Medal, President's Volunteer Service Award (PVSA)</li>
+      <li>Tutored 10+ students in clear writing and the fundamentals of C++ and Python.</li>
+    </ul>
+  </section>
+</body>
+</html>
