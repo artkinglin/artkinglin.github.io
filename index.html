@@ -31,181 +31,167 @@
   <main>
     <section class="stadium-scroll" aria-labelledby="hero-title">
       <div class="stadium-sticky">
-        <svg class="fenway-scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="fenway-title fenway-desc">
-          <title id="fenway-title">A low-angle view of a batter making contact at Fenway Park</title>
-          <desc id="fenway-desc">Viewed from behind the home plate umpire and catcher, a batter connects with the ball as the pitcher finishes his delivery beneath the Fenway Park lights.</desc>
+        <svg class="fenway-scene" viewBox="0 0 1800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="fenway-title fenway-desc">
+          <title id="fenway-title">Fenway Park from ground level at night</title>
+          <desc id="fenway-desc">An empty field viewed from inches above the dirt and grass, surrounded by packed Red Sox stands, the Green Monster, scoreboards, and glowing light towers.</desc>
           <defs>
-            <radialGradient id="skyGlow" cx="50%" cy="18%" r="76%">
-              <stop offset="0" stop-color="#34476f"/>
-              <stop offset=".48" stop-color="#17233d"/>
-              <stop offset="1" stop-color="#070a12"/>
+            <radialGradient id="skyGlow" cx="50%" cy="10%" r="88%">
+              <stop offset="0" stop-color="#334b78"/>
+              <stop offset=".42" stop-color="#172642"/>
+              <stop offset="1" stop-color="#060910"/>
             </radialGradient>
-            <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#2f7a48"/>
-              <stop offset=".5" stop-color="#1c5d37"/>
-              <stop offset="1" stop-color="#092d1c"/>
+            <linearGradient id="fieldGreen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#398558"/>
+              <stop offset=".52" stop-color="#1d5d3b"/>
+              <stop offset="1" stop-color="#08271a"/>
             </linearGradient>
-            <linearGradient id="dirt" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#c68a5e"/>
-              <stop offset=".55" stop-color="#9a6040"/>
-              <stop offset="1" stop-color="#553326"/>
+            <linearGradient id="groundDirt" x1="0" y1="0" x2=".35" y2="1">
+              <stop offset="0" stop-color="#b6754d"/>
+              <stop offset=".45" stop-color="#845037"/>
+              <stop offset="1" stop-color="#2b1a15"/>
             </linearGradient>
-            <linearGradient id="uniformWhite" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ffffff"/>
-              <stop offset=".65" stop-color="#dbe1e8"/>
-              <stop offset="1" stop-color="#8d99a8"/>
-            </linearGradient>
-            <linearGradient id="umpireBlack" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#232c3a"/>
-              <stop offset=".55" stop-color="#0b1019"/>
-              <stop offset="1" stop-color="#020407"/>
+            <linearGradient id="seatRed" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d24049"/>
+              <stop offset="1" stop-color="#67131d"/>
             </linearGradient>
             <filter id="lightGlow" x="-150%" y="-150%" width="400%" height="400%">
-              <feGaussianBlur stdDeviation="30"/>
+              <feGaussianBlur stdDeviation="38"/>
             </filter>
-            <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="#000" flood-opacity=".58"/>
+            <filter id="stadiumShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity=".55"/>
             </filter>
-            <filter id="ballGlow" x="-400%" y="-400%" width="800%" height="800%">
-              <feGaussianBlur stdDeviation="7" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <pattern id="mow" width="130" height="130" patternUnits="userSpaceOnUse" patternTransform="rotate(5)">
-              <rect width="65" height="130" fill="#ffffff" opacity=".035"/>
+            <pattern id="crowdA" width="34" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="7" cy="7" r="4" fill="#f1c6a4"/><path d="M1 24Q7 11 13 24" fill="#BD3039"/>
+              <circle cx="24" cy="5" r="3.7" fill="#9e684f"/><path d="M18 24Q24 10 31 24" fill="#d5dbe3"/>
+            </pattern>
+            <pattern id="crowdB" width="42" height="28" patternUnits="userSpaceOnUse">
+              <circle cx="8" cy="8" r="4" fill="#d9a47d"/><path d="M1 28Q8 13 15 28" fill="#263c65"/>
+              <circle cx="29" cy="7" r="4" fill="#f0c6a5"/><path d="M21 28Q29 11 38 28" fill="#BD3039"/>
+            </pattern>
+            <pattern id="grassBlades" width="45" height="36" patternUnits="userSpaceOnUse">
+              <path d="m8 36 5-22M17 36l-2-17M31 36l-5-25M38 36l1-18" stroke="#67a875" stroke-width="2" opacity=".42"/>
+            </pattern>
+            <pattern id="dirtPebbles" width="52" height="42" patternUnits="userSpaceOnUse">
+              <circle cx="9" cy="12" r="2.4" fill="#d9a77b" opacity=".48"/><circle cx="34" cy="25" r="3.2" fill="#4c2b21" opacity=".55"/>
+              <circle cx="47" cy="7" r="1.7" fill="#e2b286" opacity=".38"/><path d="m15 34 11-3" stroke="#3a211a" stroke-width="2" opacity=".45"/>
             </pattern>
           </defs>
 
-          <g class="parallax-layer layer-sky" data-depth="0.04">
-            <rect width="1600" height="900" fill="url(#skyGlow)"/>
-            <g fill="#fff" opacity=".5">
-              <circle cx="140" cy="108" r="1.5"/><circle cx="298" cy="173" r="1"/><circle cx="570" cy="84" r="1.4"/>
-              <circle cx="1035" cy="126" r="1.2"/><circle cx="1295" cy="72" r="1.5"/><circle cx="1488" cy="182" r="1"/>
-            </g>
-            <path d="M0 335 150 308 290 330 450 295 620 326 790 292 940 322 1100 297 1260 328 1420 298 1600 320V455H0Z" fill="#090d17"/>
-          </g>
-
-          <g class="parallax-layer layer-lights" data-depth="0.1">
-            <g transform="translate(62 -28)">
-              <path d="M35 390 100 88M132 390 68 88M49 320h70M58 250h51M67 180h35" stroke="#667087" stroke-width="9"/>
-              <rect x="18" y="50" width="132" height="70" rx="7" fill="#dce4ec"/>
-              <rect x="-40" y="-10" width="250" height="185" rx="60" fill="#fff5b8" opacity=".25" filter="url(#lightGlow)"/>
-              <g fill="#fffbd9"><circle cx="42" cy="72" r="10"/><circle cx="76" cy="72" r="10"/><circle cx="110" cy="72" r="10"/><circle cx="42" cy="102" r="10"/><circle cx="76" cy="102" r="10"/><circle cx="110" cy="102" r="10"/></g>
-            </g>
-            <g transform="translate(1380 -28)">
-              <path d="M35 390 100 88M132 390 68 88M49 320h70M58 250h51M67 180h35" stroke="#667087" stroke-width="9"/>
-              <rect x="18" y="50" width="132" height="70" rx="7" fill="#dce4ec"/>
-              <rect x="-40" y="-10" width="250" height="185" rx="60" fill="#fff5b8" opacity=".25" filter="url(#lightGlow)"/>
-              <g fill="#fffbd9"><circle cx="42" cy="72" r="10"/><circle cx="76" cy="72" r="10"/><circle cx="110" cy="72" r="10"/><circle cx="42" cy="102" r="10"/><circle cx="76" cy="102" r="10"/><circle cx="110" cy="102" r="10"/></g>
+          <g class="parallax-layer layer-sky" data-depth="0.03">
+            <rect width="1800" height="1000" fill="url(#skyGlow)"/>
+            <g fill="#fff" opacity=".48">
+              <circle cx="126" cy="110" r="1.7"/><circle cx="310" cy="185" r="1.1"/><circle cx="510" cy="78" r="1.4"/>
+              <circle cx="735" cy="148" r="1.2"/><circle cx="1008" cy="92" r="1.6"/><circle cx="1250" cy="160" r="1.1"/>
+              <circle cx="1475" cy="85" r="1.5"/><circle cx="1680" cy="194" r="1.2"/>
             </g>
           </g>
 
-          <g class="parallax-layer layer-stands" data-depth="0.18">
-            <path d="M0 350Q800 285 1600 350V500H0Z" fill="#111725"/>
-            <path d="M0 380Q800 318 1600 380V490H0Z" fill="#52121b"/>
-            <g fill="#BD3039">
-              <path d="M0 398Q800 340 1600 398v17Q800 358 0 415Z"/>
-              <path d="M0 444Q800 390 1600 444v17Q800 408 0 461Z"/>
+          <g class="parallax-layer layer-lights" data-depth="0.09">
+            <g transform="translate(24 -36)">
+              <path d="M24 505 116 105M170 505 82 105M45 410h105M58 315h72M69 220h48" stroke="#778196" stroke-width="11"/>
+              <rect x="10" y="52" width="190" height="88" rx="8" fill="#dce3ea"/>
+              <rect x="-60" y="-20" width="330" height="230" rx="80" fill="#fff3ae" opacity=".26" filter="url(#lightGlow)"/>
+              <g fill="#fffbd6">
+                <circle cx="38" cy="78" r="11"/><circle cx="79" cy="78" r="11"/><circle cx="120" cy="78" r="11"/><circle cx="161" cy="78" r="11"/>
+                <circle cx="38" cy="114" r="11"/><circle cx="79" cy="114" r="11"/><circle cx="120" cy="114" r="11"/><circle cx="161" cy="114" r="11"/>
+              </g>
             </g>
-            <g fill="#f5e9c0" opacity=".24">
-              <circle cx="550" cy="390" r="4"/><circle cx="605" cy="405" r="3"/><circle cx="1080" cy="396" r="4"/><circle cx="1155" cy="420" r="3"/>
-            </g>
-          </g>
-
-          <g class="parallax-layer layer-monster" data-depth="0.25" filter="url(#softShadow)">
-            <path d="M0 315H470V510H0Z" fill="#215732"/>
-            <path d="M0 315H470" stroke="#7aa382" stroke-width="7"/>
-            <path d="M408 315v195M434 315v195" stroke="#153c24" stroke-width="5"/>
-            <rect x="62" y="348" width="288" height="125" rx="3" fill="#111913" stroke="#e0dac0" stroke-width="3"/>
-            <text x="206" y="376" fill="#f2ead0" text-anchor="middle" font-family="monospace" font-size="15" letter-spacing="5">FENWAY PARK</text>
-            <g fill="#f2ead0" font-family="monospace" font-size="17" text-anchor="middle">
-              <text x="98" y="414">1</text><text x="138" y="414">2</text><text x="178" y="414">3</text><text x="218" y="414">4</text><text x="258" y="414">5</text><text x="313" y="414">R</text>
-              <text x="98" y="452">0</text><text x="138" y="452">1</text><text x="178" y="452">0</text><text x="218" y="452">2</text><text x="258" y="452">0</text><text x="313" y="452">3</text>
-            </g>
-            <text x="380" y="342" fill="#f5f0db" font-size="15" font-weight="700">310 FT</text>
-          </g>
-
-          <g class="parallax-layer layer-field" data-depth="0.34">
-            <path d="M0 478Q800 405 1600 478V900H0Z" fill="url(#grass)"/>
-            <path d="M0 478Q800 405 1600 478V900H0Z" fill="url(#mow)"/>
-            <path d="M800 492 140 900H1460Z" fill="url(#dirt)"/>
-            <path d="M800 520 310 900H1290Z" fill="url(#grass)"/>
-            <path d="M800 518 800 900" stroke="#f0e7d8" stroke-width="3" opacity=".55"/>
-            <path d="M800 515 225 900M800 515 1375 900" stroke="#f4eee1" stroke-width="6" opacity=".78"/>
-          </g>
-
-          <g class="parallax-layer layer-mound" data-depth="0.48">
-            <ellipse cx="800" cy="548" rx="72" ry="23" fill="#ad724c"/>
-            <rect x="780" y="536" width="40" height="6" rx="2" fill="#f2ece1"/>
-          </g>
-
-          <g class="parallax-layer layer-pitcher" data-depth="0.62" data-focus="pitcher">
-            <g transform="translate(800 463)" filter="url(#softShadow)">
-              <ellipse cx="0" cy="104" rx="38" ry="9" fill="#000" opacity=".3"/>
-              <circle cx="-2" cy="7" r="18" fill="#b97857"/>
-              <path d="M-19 3Q-2-16 20 3v8h-39Z" fill="#1a2b50"/>
-              <path d="M-23 28Q0 16 25 30L18 76H-18Z" fill="url(#uniformWhite)"/>
-              <text x="0" y="55" fill="#BD3039" text-anchor="middle" font-size="15" font-weight="900">18</text>
-              <path d="m-12 73-36 30M14 74l45 17" stroke="#e6eaf0" stroke-width="13" stroke-linecap="round"/>
-              <path d="m-17 34-45 18M18 34l48 25" stroke="#b97857" stroke-width="11" stroke-linecap="round"/>
-              <circle cx="67" cy="60" r="10" fill="#422b21"/>
+            <g transform="translate(1585 -36)">
+              <path d="M24 505 116 105M170 505 82 105M45 410h105M58 315h72M69 220h48" stroke="#778196" stroke-width="11"/>
+              <rect x="10" y="52" width="190" height="88" rx="8" fill="#dce3ea"/>
+              <rect x="-60" y="-20" width="330" height="230" rx="80" fill="#fff3ae" opacity=".26" filter="url(#lightGlow)"/>
+              <g fill="#fffbd6">
+                <circle cx="38" cy="78" r="11"/><circle cx="79" cy="78" r="11"/><circle cx="120" cy="78" r="11"/><circle cx="161" cy="78" r="11"/>
+                <circle cx="38" cy="114" r="11"/><circle cx="79" cy="114" r="11"/><circle cx="120" cy="114" r="11"/><circle cx="161" cy="114" r="11"/>
+              </g>
             </g>
           </g>
 
-          <g class="parallax-layer layer-plate" data-depth="0.95">
-            <path d="m800 767-32 18 13 29h38l13-29Z" fill="#f4f0e6"/>
-            <path d="M675 746Q800 700 925 746" fill="none" stroke="#f4f0e6" stroke-width="6" opacity=".72"/>
-            <path d="M691 731 632 900M909 731 968 900" stroke="#f4f0e6" stroke-width="7" opacity=".65"/>
-          </g>
-
-          <g class="parallax-layer layer-batter" data-depth="1.08">
-            <g transform="translate(965 556) rotate(-4)" filter="url(#softShadow)">
-              <ellipse cx="0" cy="218" rx="74" ry="18" fill="#000" opacity=".34"/>
-              <circle cx="-6" cy="18" r="31" fill="#ae7153"/>
-              <path d="M-33 11Q-7-19 34 4l-3 25h-63Z" fill="#BD3039"/>
-              <path d="M-36 55Q-6 35 39 57L31 145H-25Z" fill="url(#uniformWhite)"/>
-              <path d="m-13 140-55 74M22 140l67 66" stroke="#e9edf1" stroke-width="25" stroke-linecap="round"/>
-              <path d="m-24 67 78 37M30 67l47 24" stroke="#ae7153" stroke-width="18" stroke-linecap="round"/>
-              <path d="M46 98 168 28" stroke="#d7ad70" stroke-width="11" stroke-linecap="round"/>
-              <path d="M46 98 170 28" stroke="#fff0c4" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+          <g class="parallax-layer layer-roof" data-depth="0.15" filter="url(#stadiumShadow)">
+            <path d="M0 345Q900 250 1800 345V405Q900 305 0 405Z" fill="#0b111d"/>
+            <path d="M360 326h1080l-70-66H440Z" fill="#151d29"/>
+            <g stroke="#4b5668" stroke-width="6">
+              <path d="M430 327 490 260M620 311l25-51M800 302v-42M980 301v-41M1160 309l-25-49M1370 327l-60-67"/>
+            </g>
+            <rect x="720" y="236" width="360" height="70" rx="7" fill="#102319" stroke="#607e67" stroke-width="4"/>
+            <text x="900" y="280" fill="#f3e9c2" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="700" letter-spacing="8">FENWAY PARK</text>
+            <g transform="translate(1300 205)">
+              <rect width="180" height="112" rx="8" fill="#f3f3ed" stroke="#c7ccd4" stroke-width="5"/>
+              <path d="M90 16 154 55 90 94 26 55Z" fill="#f7fbff" stroke="#2c5fa6" stroke-width="7"/>
+              <text x="90" y="67" fill="#d93841" text-anchor="middle" font-size="29" font-weight="900">CITGO</text>
             </g>
           </g>
 
-          <g class="parallax-layer layer-contact" data-depth="0.84" data-focus="contact">
-            <g class="contact-burst" transform="translate(1008 646)">
-              <path d="M-74 5H-8M-58-15-4-3M-50 23-3 9" stroke="#fff0a8" stroke-width="5" stroke-linecap="round" opacity=".85"/>
-              <circle class="hit-ball" cx="0" cy="0" r="10" fill="#fffdf1" stroke="#c9bfa6" stroke-width="2" filter="url(#ballGlow)"/>
-              <path d="M-4-7c4 2 7 5 9 10M-7 3c4-1 8 0 11 3" fill="none" stroke="#BD3039" stroke-width="1.4"/>
+          <g class="parallax-layer layer-upper-crowd" data-depth="0.25">
+            <path d="M0 376Q900 290 1800 376V520Q900 430 0 520Z" fill="#27111a"/>
+            <path d="M0 385Q900 300 1800 385V505Q900 417 0 505Z" fill="url(#crowdB)"/>
+            <path d="M0 422Q900 338 1800 422M0 470Q900 386 1800 470" fill="none" stroke="#BD3039" stroke-width="15" opacity=".88"/>
+            <path d="M0 503Q900 414 1800 503" fill="none" stroke="#d3d7de" stroke-width="7" opacity=".65"/>
+          </g>
+
+          <g class="parallax-layer layer-monster" data-depth="0.34" filter="url(#stadiumShadow)">
+            <path d="M0 342H500V608H0Z" fill="#215732"/>
+            <path d="M0 342H500" stroke="#86a78b" stroke-width="9"/>
+            <path d="M425 342v266M455 342v266" stroke="#153c24" stroke-width="7"/>
+            <rect x="58" y="385" width="314" height="160" rx="3" fill="#101712" stroke="#e5dec6" stroke-width="4"/>
+            <text x="215" y="420" fill="#f4ecd1" text-anchor="middle" font-family="monospace" font-size="18" letter-spacing="5">AMERICAN LEAGUE</text>
+            <g fill="#f4ecd1" font-family="monospace" font-size="20" text-anchor="middle">
+              <text x="94" y="463">1</text><text x="136" y="463">2</text><text x="178" y="463">3</text><text x="220" y="463">4</text><text x="262" y="463">5</text><text x="326" y="463">R</text>
+              <text x="94" y="508">0</text><text x="136" y="508">2</text><text x="178" y="508">1</text><text x="220" y="508">0</text><text x="262" y="508">1</text><text x="326" y="508">4</text>
+            </g>
+            <text x="395" y="373" fill="#f5f0db" font-size="18" font-weight="700">310 FT</text>
+          </g>
+
+          <g class="parallax-layer layer-lower-crowd" data-depth="0.44">
+            <path d="M430 472Q1120 410 1800 493V650Q1110 555 430 622Z" fill="url(#seatRed)"/>
+            <path d="M430 487Q1120 427 1800 508V625Q1110 538 430 607Z" fill="url(#crowdA)"/>
+            <path d="M430 523Q1120 463 1800 543M430 574Q1120 515 1800 593" fill="none" stroke="#BD3039" stroke-width="18"/>
+            <path d="M445 614Q1120 552 1800 643" fill="none" stroke="#d6dbe1" stroke-width="8" opacity=".72"/>
+            <g fill="#f1ead1" font-family="monospace" font-size="18" font-weight="700">
+              <text x="560" y="600">BOSTON</text><text x="1480" y="620">RED SOX</text>
             </g>
           </g>
 
-          <g class="parallax-layer layer-catcher" data-depth="1.28">
-            <g transform="translate(755 525)" filter="url(#softShadow)">
-              <ellipse cx="0" cy="249" rx="112" ry="23" fill="#000" opacity=".42"/>
-              <circle cx="0" cy="27" r="35" fill="#111722"/>
-              <path d="M-30 12h60v38h-60Z" fill="none" stroke="#8c99aa" stroke-width="7"/>
-              <path d="M-50 70Q0 39 52 72L66 151Q0 183-68 151Z" fill="#BD3039"/>
-              <path d="M-36 75 0 158 37 76M-55 108h110" fill="none" stroke="#e1e5eb" stroke-width="7" opacity=".8"/>
-              <path d="m-52 140-76 91M55 140l84 87" stroke="#bd3039" stroke-width="31" stroke-linecap="round"/>
-              <path d="m-50 95-91 69M51 96l86 48" stroke="#d9dee5" stroke-width="20" stroke-linecap="round"/>
-              <ellipse cx="-147" cy="170" rx="31" ry="38" fill="#563b27" transform="rotate(-20 -147 170)"/>
+          <g class="parallax-layer layer-dugouts" data-depth="0.56">
+            <path d="M0 585Q900 510 1800 585V695Q900 622 0 695Z" fill="#18221b"/>
+            <path d="M0 593Q900 520 1800 593" fill="none" stroke="#d8d8cd" stroke-width="12"/>
+            <path d="M0 618Q900 546 1800 618" fill="none" stroke="#315d3d" stroke-width="19"/>
+            <g fill="#f4ecd4" font-family="Arial,sans-serif" font-size="20" font-weight="800" letter-spacing="7">
+              <text x="72" y="655">BOSTON RED SOX</text><text x="1380" y="668">FENWAY PARK</text>
             </g>
           </g>
 
-          <g class="parallax-layer layer-umpire" data-depth="1.52">
-            <g transform="translate(790 640)" filter="url(#softShadow)">
-              <ellipse cx="0" cy="355" rx="195" ry="36" fill="#000" opacity=".48"/>
-              <circle cx="0" cy="48" r="54" fill="#080b11"/>
-              <path d="M-45 20h90v58h-90Z" fill="none" stroke="#657081" stroke-width="10"/>
-              <path d="M-84 105Q0 62 87 108L130 264Q0 330-135 264Z" fill="url(#umpireBlack)"/>
-              <path d="m-94 205-110 142M95 205l118 138" stroke="#090d14" stroke-width="58" stroke-linecap="round"/>
-              <path d="m-74 122-115 110M77 122l120 103" stroke="#141b27" stroke-width="39" stroke-linecap="round"/>
-              <path d="M-126 139Q0 102 128 140" fill="none" stroke="#313c4b" stroke-width="12" opacity=".55"/>
+          <g class="parallax-layer layer-field" data-depth="0.72">
+            <path d="M0 650Q900 570 1800 650V1000H0Z" fill="url(#fieldGreen)"/>
+            <path d="M0 650Q900 570 1800 650V1000H0Z" fill="url(#grassBlades)" opacity=".55"/>
+            <path d="M900 600 320 1000H1480Z" fill="#8b593d" opacity=".72"/>
+            <path d="M900 616 535 1000H1265Z" fill="url(#fieldGreen)"/>
+            <ellipse cx="900" cy="690" rx="88" ry="25" fill="#a66d4a"/>
+            <rect x="878" y="678" width="44" height="7" rx="2" fill="#eee9df"/>
+          </g>
+
+          <g class="parallax-layer layer-warning-track" data-depth="0.9">
+            <path d="M0 770Q900 655 1800 770V1000H0Z" fill="url(#groundDirt)"/>
+            <path d="M0 770Q900 655 1800 770V1000H0Z" fill="url(#dirtPebbles)" opacity=".72"/>
+            <path d="M0 770Q900 655 1800 770" fill="none" stroke="#d6b18b" stroke-width="6" opacity=".38"/>
+          </g>
+
+          <g class="parallax-layer layer-ground" data-depth="1.18">
+            <path d="M0 862Q900 780 1800 862V1000H0Z" fill="#38231a"/>
+            <path d="M0 862Q900 780 1800 862V1000H0Z" fill="url(#dirtPebbles)"/>
+            <g stroke="#74aa78" stroke-width="5" stroke-linecap="round" opacity=".75">
+              <path d="m90 982 18-82M128 996l-4-72M157 981l25-62M1490 991l-13-81M1538 994l20-70M1695 982l-9-65"/>
+            </g>
+            <g fill="#d7a57c" opacity=".72">
+              <ellipse cx="280" cy="936" rx="13" ry="7" transform="rotate(-18 280 936)"/>
+              <ellipse cx="475" cy="891" rx="8" ry="5"/><ellipse cx="1215" cy="920" rx="11" ry="6" transform="rotate(24 1215 920)"/>
+              <ellipse cx="1450" cy="878" rx="7" ry="4"/>
             </g>
           </g>
         </svg>
 
         <div class="hero-content shell">
-          <p class="kicker">Now batting</p>
+          <p class="kicker">Fenway Park · Boston</p>
           <h1 id="hero-title">Arthur Lin</h1>
           <p class="hero-role">Computer Science Student <span>&</span> Machine Learning Engineer</p>
           <div class="hero-contact">
@@ -216,7 +202,7 @@
           <a class="stadium-button" href="resume.pdf" download>Download Resume</a>
         </div>
 
-        <div class="scroll-callout" aria-hidden="true"><span></span>Scroll into the game</div>
+        <div class="scroll-callout" aria-hidden="true"><span></span>Look up from field level</div>
       </div>
     </section>
 
