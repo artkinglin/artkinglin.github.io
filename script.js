@@ -56,6 +56,7 @@ const stadiumScroll = document.querySelector(".stadium-scroll");
 const scene = document.querySelector(".fenway-scene");
 const heroContent = document.querySelector(".hero-content");
 const layers = document.querySelectorAll(".parallax-layer");
+const contactBurst = document.querySelector(".contact-burst");
 
 if (stadiumScroll && scene && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let ticking = false;
@@ -66,13 +67,46 @@ if (stadiumScroll && scene && !matchMedia("(prefers-reduced-motion: reduce)").ma
     const progress = Math.min(1, Math.max(0, -rect.top / travel));
     const eased = progress * progress * (3 - 2 * progress);
 
-    scene.style.transform = `scale(${1 + eased * 1.55}) translate(${eased * -3.5}%, ${eased * -12}%)`;
+    scene.style.transform = `scale(${1 + eased * 2.35}) translateY(${eased * 1.5}%)`;
     layers.forEach((layer) => {
       const depth = Number(layer.dataset.depth || 0);
-      layer.style.transform = `translateY(${eased * depth * -48}px) scale(${1 + eased * depth * 0.08})`;
+      let exitX = 0;
+      let exitY = eased * depth * 18;
+      let layerScale = 1 + eased * depth * 0.05;
+
+      if (layer.classList.contains("layer-umpire")) {
+        exitY = eased * 270;
+        layerScale = 1 + eased * 0.55;
+      } else if (layer.classList.contains("layer-catcher")) {
+        exitX = eased * -115;
+        exitY = eased * 205;
+        layerScale = 1 + eased * 0.36;
+      } else if (layer.classList.contains("layer-batter")) {
+        exitX = eased * 145;
+        exitY = eased * 120;
+        layerScale = 1 + eased * 0.22;
+      } else if (layer.classList.contains("layer-plate")) {
+        exitY = eased * 155;
+      }
+
+      layer.style.transform = `translate(${exitX}px, ${exitY}px) scale(${layerScale})`;
+
+      if (depth > 1) {
+        const fadeStart = depth > 1.4 ? 0.18 : 0.38;
+        layer.style.opacity = String(Math.max(0, 1 - Math.max(0, progress - fadeStart) * 1.8));
+      }
     });
-    heroContent.style.opacity = String(Math.max(0, 1 - progress * 1.8));
-    heroContent.style.transform = `translateY(${progress * -55}px)`;
+
+    if (contactBurst) {
+      const ballFlight = Math.max(0, (progress - 0.18) / 0.82);
+      contactBurst.setAttribute(
+        "transform",
+        `translate(${1008 - ballFlight * 208} ${646 - ballFlight * 124}) scale(${1 - ballFlight * 0.36})`
+      );
+    }
+
+    heroContent.style.opacity = String(Math.max(0, 1 - progress * 2.4));
+    heroContent.style.transform = `translateY(${progress * -70}px)`;
     ticking = false;
   };
 

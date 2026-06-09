@@ -32,124 +32,175 @@
     <section class="stadium-scroll" aria-labelledby="hero-title">
       <div class="stadium-sticky">
         <svg class="fenway-scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="fenway-title fenway-desc">
-          <title id="fenway-title">An illustrated baseball game at Fenway Park at night</title>
-          <desc id="fenway-desc">A pitcher faces a batter at home plate under glowing stadium lights with the Green Monster in left field.</desc>
+          <title id="fenway-title">A low-angle view of a batter making contact at Fenway Park</title>
+          <desc id="fenway-desc">Viewed from behind the home plate umpire and catcher, a batter connects with the ball as the pitcher finishes his delivery beneath the Fenway Park lights.</desc>
           <defs>
-            <radialGradient id="skyGlow" cx="50%" cy="12%" r="80%">
-              <stop offset="0" stop-color="#243252"/>
-              <stop offset=".55" stop-color="#10172a"/>
+            <radialGradient id="skyGlow" cx="50%" cy="18%" r="76%">
+              <stop offset="0" stop-color="#34476f"/>
+              <stop offset=".48" stop-color="#17233d"/>
               <stop offset="1" stop-color="#070a12"/>
             </radialGradient>
             <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#1e653d"/>
-              <stop offset="1" stop-color="#0c321f"/>
+              <stop offset="0" stop-color="#2f7a48"/>
+              <stop offset=".5" stop-color="#1c5d37"/>
+              <stop offset="1" stop-color="#092d1c"/>
             </linearGradient>
             <linearGradient id="dirt" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b8774c"/>
-              <stop offset="1" stop-color="#70432e"/>
+              <stop offset="0" stop-color="#c68a5e"/>
+              <stop offset=".55" stop-color="#9a6040"/>
+              <stop offset="1" stop-color="#553326"/>
+            </linearGradient>
+            <linearGradient id="uniformWhite" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset=".65" stop-color="#dbe1e8"/>
+              <stop offset="1" stop-color="#8d99a8"/>
+            </linearGradient>
+            <linearGradient id="umpireBlack" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#232c3a"/>
+              <stop offset=".55" stop-color="#0b1019"/>
+              <stop offset="1" stop-color="#020407"/>
             </linearGradient>
             <filter id="lightGlow" x="-150%" y="-150%" width="400%" height="400%">
-              <feGaussianBlur stdDeviation="24"/>
+              <feGaussianBlur stdDeviation="30"/>
             </filter>
             <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#000" flood-opacity=".45"/>
+              <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="#000" flood-opacity=".58"/>
             </filter>
-            <pattern id="mow" width="150" height="150" patternUnits="userSpaceOnUse" patternTransform="rotate(36)">
-              <rect width="75" height="150" fill="#ffffff" opacity=".025"/>
+            <filter id="ballGlow" x="-400%" y="-400%" width="800%" height="800%">
+              <feGaussianBlur stdDeviation="7" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <pattern id="mow" width="130" height="130" patternUnits="userSpaceOnUse" patternTransform="rotate(5)">
+              <rect width="65" height="130" fill="#ffffff" opacity=".035"/>
             </pattern>
           </defs>
 
-          <g class="parallax-layer layer-sky" data-depth="0.08">
+          <g class="parallax-layer layer-sky" data-depth="0.04">
             <rect width="1600" height="900" fill="url(#skyGlow)"/>
-            <g fill="#fff" opacity=".45">
-              <circle cx="165" cy="105" r="1.5"/><circle cx="321" cy="162" r="1"/><circle cx="612" cy="90" r="1.4"/>
-              <circle cx="1040" cy="130" r="1.2"/><circle cx="1300" cy="78" r="1.5"/><circle cx="1480" cy="190" r="1"/>
+            <g fill="#fff" opacity=".5">
+              <circle cx="140" cy="108" r="1.5"/><circle cx="298" cy="173" r="1"/><circle cx="570" cy="84" r="1.4"/>
+              <circle cx="1035" cy="126" r="1.2"/><circle cx="1295" cy="72" r="1.5"/><circle cx="1488" cy="182" r="1"/>
             </g>
-            <path d="M0 360 130 330 260 342 390 308 510 340 640 300 770 325 900 298 1040 340 1190 305 1320 330 1460 302 1600 322V520H0Z" fill="#0a0d16"/>
+            <path d="M0 335 150 308 290 330 450 295 620 326 790 292 940 322 1100 297 1260 328 1420 298 1600 320V455H0Z" fill="#090d17"/>
           </g>
 
-          <g class="parallax-layer layer-lights" data-depth="0.18">
-            <g class="light-tower" transform="translate(130 20)">
-              <path d="M35 345 88 80M112 345 60 80M46 285h56M53 220h42M60 155h29" stroke="#596175" stroke-width="8"/>
-              <rect x="20" y="50" width="110" height="58" rx="6" fill="#e8eef5"/>
-              <rect x="-20" y="10" width="190" height="135" rx="45" fill="#fff4bb" opacity=".22" filter="url(#lightGlow)"/>
-              <g fill="#fffbd6"><circle cx="42" cy="68" r="8"/><circle cx="70" cy="68" r="8"/><circle cx="98" cy="68" r="8"/><circle cx="42" cy="92" r="8"/><circle cx="70" cy="92" r="8"/><circle cx="98" cy="92" r="8"/></g>
+          <g class="parallax-layer layer-lights" data-depth="0.1">
+            <g transform="translate(62 -28)">
+              <path d="M35 390 100 88M132 390 68 88M49 320h70M58 250h51M67 180h35" stroke="#667087" stroke-width="9"/>
+              <rect x="18" y="50" width="132" height="70" rx="7" fill="#dce4ec"/>
+              <rect x="-40" y="-10" width="250" height="185" rx="60" fill="#fff5b8" opacity=".25" filter="url(#lightGlow)"/>
+              <g fill="#fffbd9"><circle cx="42" cy="72" r="10"/><circle cx="76" cy="72" r="10"/><circle cx="110" cy="72" r="10"/><circle cx="42" cy="102" r="10"/><circle cx="76" cy="102" r="10"/><circle cx="110" cy="102" r="10"/></g>
             </g>
-            <g class="light-tower" transform="translate(1340 5)">
-              <path d="M35 345 88 80M112 345 60 80M46 285h56M53 220h42M60 155h29" stroke="#596175" stroke-width="8"/>
-              <rect x="20" y="50" width="110" height="58" rx="6" fill="#e8eef5"/>
-              <rect x="-20" y="10" width="190" height="135" rx="45" fill="#fff4bb" opacity=".22" filter="url(#lightGlow)"/>
-              <g fill="#fffbd6"><circle cx="42" cy="68" r="8"/><circle cx="70" cy="68" r="8"/><circle cx="98" cy="68" r="8"/><circle cx="42" cy="92" r="8"/><circle cx="70" cy="92" r="8"/><circle cx="98" cy="92" r="8"/></g>
-            </g>
-          </g>
-
-          <g class="parallax-layer layer-stands" data-depth="0.3">
-            <path d="M0 390Q800 300 1600 390V570H0Z" fill="#121824"/>
-            <path d="M0 415Q800 335 1600 415V530H0Z" fill="#3e1118"/>
-            <g fill="#BD3039" opacity=".8">
-              <path d="M0 438Q800 365 1600 438v15Q800 382 0 453Z"/>
-              <path d="M0 480Q800 410 1600 480v15Q800 427 0 495Z"/>
+            <g transform="translate(1380 -28)">
+              <path d="M35 390 100 88M132 390 68 88M49 320h70M58 250h51M67 180h35" stroke="#667087" stroke-width="9"/>
+              <rect x="18" y="50" width="132" height="70" rx="7" fill="#dce4ec"/>
+              <rect x="-40" y="-10" width="250" height="185" rx="60" fill="#fff5b8" opacity=".25" filter="url(#lightGlow)"/>
+              <g fill="#fffbd9"><circle cx="42" cy="72" r="10"/><circle cx="76" cy="72" r="10"/><circle cx="110" cy="72" r="10"/><circle cx="42" cy="102" r="10"/><circle cx="76" cy="102" r="10"/><circle cx="110" cy="102" r="10"/></g>
             </g>
           </g>
 
-          <g class="parallax-layer layer-monster" data-depth="0.42" filter="url(#softShadow)">
-            <path d="M0 330H485V575H0Z" fill="#215732"/>
-            <path d="M0 330H485" stroke="#759b7d" stroke-width="8"/>
-            <path d="M420 330v245M445 330v245" stroke="#183e26" stroke-width="6"/>
-            <rect x="70" y="370" width="300" height="142" rx="3" fill="#172019" stroke="#d9d3b8" stroke-width="4"/>
-            <text x="220" y="400" fill="#f2ead0" text-anchor="middle" font-family="monospace" font-size="18" letter-spacing="6">FENWAY PARK</text>
-            <g fill="#f2ead0" font-family="monospace" font-size="20" text-anchor="middle">
-              <text x="110" y="442">1</text><text x="150" y="442">2</text><text x="190" y="442">3</text><text x="230" y="442">4</text><text x="270" y="442">5</text><text x="325" y="442">R</text>
-              <text x="110" y="482">0</text><text x="150" y="482">1</text><text x="190" y="482">0</text><text x="230" y="482">2</text><text x="270" y="482">0</text><text x="325" y="482">3</text>
+          <g class="parallax-layer layer-stands" data-depth="0.18">
+            <path d="M0 350Q800 285 1600 350V500H0Z" fill="#111725"/>
+            <path d="M0 380Q800 318 1600 380V490H0Z" fill="#52121b"/>
+            <g fill="#BD3039">
+              <path d="M0 398Q800 340 1600 398v17Q800 358 0 415Z"/>
+              <path d="M0 444Q800 390 1600 444v17Q800 408 0 461Z"/>
             </g>
-            <text x="390" y="355" fill="#f5f0db" font-size="17" font-weight="700">310 FT</text>
+            <g fill="#f5e9c0" opacity=".24">
+              <circle cx="550" cy="390" r="4"/><circle cx="605" cy="405" r="3"/><circle cx="1080" cy="396" r="4"/><circle cx="1155" cy="420" r="3"/>
+            </g>
           </g>
 
-          <g class="parallax-layer layer-field" data-depth="0.52">
-            <path d="M0 540Q800 440 1600 540V900H0Z" fill="url(#grass)"/>
-            <path d="M0 540Q800 440 1600 540V900H0Z" fill="url(#mow)"/>
-            <path d="M800 563 300 900H1300Z" fill="url(#dirt)"/>
-            <path d="M800 590 465 900H1135Z" fill="url(#grass)"/>
-            <path d="M800 590 800 880" stroke="#f3eadb" stroke-width="4" opacity=".85"/>
-            <path d="M800 590 350 900M800 590 1250 900" stroke="#f3eadb" stroke-width="5" opacity=".8"/>
+          <g class="parallax-layer layer-monster" data-depth="0.25" filter="url(#softShadow)">
+            <path d="M0 315H470V510H0Z" fill="#215732"/>
+            <path d="M0 315H470" stroke="#7aa382" stroke-width="7"/>
+            <path d="M408 315v195M434 315v195" stroke="#153c24" stroke-width="5"/>
+            <rect x="62" y="348" width="288" height="125" rx="3" fill="#111913" stroke="#e0dac0" stroke-width="3"/>
+            <text x="206" y="376" fill="#f2ead0" text-anchor="middle" font-family="monospace" font-size="15" letter-spacing="5">FENWAY PARK</text>
+            <g fill="#f2ead0" font-family="monospace" font-size="17" text-anchor="middle">
+              <text x="98" y="414">1</text><text x="138" y="414">2</text><text x="178" y="414">3</text><text x="218" y="414">4</text><text x="258" y="414">5</text><text x="313" y="414">R</text>
+              <text x="98" y="452">0</text><text x="138" y="452">1</text><text x="178" y="452">0</text><text x="218" y="452">2</text><text x="258" y="452">0</text><text x="313" y="452">3</text>
+            </g>
+            <text x="380" y="342" fill="#f5f0db" font-size="15" font-weight="700">310 FT</text>
           </g>
 
-          <g class="parallax-layer layer-mound" data-depth="0.72">
-            <ellipse cx="800" cy="657" rx="92" ry="35" fill="#a86b45"/>
-            <rect x="775" y="641" width="50" height="8" rx="3" fill="#efe8d9"/>
+          <g class="parallax-layer layer-field" data-depth="0.34">
+            <path d="M0 478Q800 405 1600 478V900H0Z" fill="url(#grass)"/>
+            <path d="M0 478Q800 405 1600 478V900H0Z" fill="url(#mow)"/>
+            <path d="M800 492 140 900H1460Z" fill="url(#dirt)"/>
+            <path d="M800 520 310 900H1290Z" fill="url(#grass)"/>
+            <path d="M800 518 800 900" stroke="#f0e7d8" stroke-width="3" opacity=".55"/>
+            <path d="M800 515 225 900M800 515 1375 900" stroke="#f4eee1" stroke-width="6" opacity=".78"/>
           </g>
 
-          <g class="parallax-layer layer-pitcher" data-depth="0.92" transform="translate(800 575)" filter="url(#softShadow)">
-            <ellipse cx="0" cy="117" rx="34" ry="10" fill="#000" opacity=".25"/>
-            <circle cx="0" cy="8" r="20" fill="#c98a64"/>
-            <path d="M-20 5Q0-20 22 4v8h-42Z" fill="#182544"/>
-            <path d="M-23 30Q0 16 25 31L18 83H-18Z" fill="#e8edf2"/>
-            <text x="0" y="60" fill="#BD3039" text-anchor="middle" font-size="17" font-weight="900">18</text>
-            <path d="m-15 80-13 34M14 80l22 30" stroke="#e8edf2" stroke-width="15" stroke-linecap="round"/>
-            <path d="m-20 38-32 30M20 38l31 11" stroke="#c98a64" stroke-width="13" stroke-linecap="round"/>
-            <circle cx="52" cy="50" r="12" fill="#3a251c"/>
+          <g class="parallax-layer layer-mound" data-depth="0.48">
+            <ellipse cx="800" cy="548" rx="72" ry="23" fill="#ad724c"/>
+            <rect x="780" y="536" width="40" height="6" rx="2" fill="#f2ece1"/>
           </g>
 
-          <g class="parallax-layer layer-plate" data-depth="1.08">
-            <path d="m800 864-20 12 8 20h24l8-20Z" fill="#f4f0e6"/>
-            <path d="M720 840Q800 805 880 840" fill="none" stroke="#f4f0e6" stroke-width="5" opacity=".8"/>
+          <g class="parallax-layer layer-pitcher" data-depth="0.62" data-focus="pitcher">
+            <g transform="translate(800 463)" filter="url(#softShadow)">
+              <ellipse cx="0" cy="104" rx="38" ry="9" fill="#000" opacity=".3"/>
+              <circle cx="-2" cy="7" r="18" fill="#b97857"/>
+              <path d="M-19 3Q-2-16 20 3v8h-39Z" fill="#1a2b50"/>
+              <path d="M-23 28Q0 16 25 30L18 76H-18Z" fill="url(#uniformWhite)"/>
+              <text x="0" y="55" fill="#BD3039" text-anchor="middle" font-size="15" font-weight="900">18</text>
+              <path d="m-12 73-36 30M14 74l45 17" stroke="#e6eaf0" stroke-width="13" stroke-linecap="round"/>
+              <path d="m-17 34-45 18M18 34l48 25" stroke="#b97857" stroke-width="11" stroke-linecap="round"/>
+              <circle cx="67" cy="60" r="10" fill="#422b21"/>
+            </g>
           </g>
 
-          <g class="parallax-layer layer-batter" data-depth="1.2" transform="translate(880 716)" filter="url(#softShadow)">
-            <ellipse cx="0" cy="166" rx="45" ry="12" fill="#000" opacity=".3"/>
-            <circle cx="0" cy="18" r="25" fill="#b97655"/>
-            <path d="M-22 12Q0-18 27 8l-2 17h-47Z" fill="#BD3039"/>
-            <path d="M-28 47Q0 30 32 48L24 112H-20Z" fill="#f1f1ed"/>
-            <path d="m-12 108-26 53M17 108l34 45" stroke="#f1f1ed" stroke-width="18" stroke-linecap="round"/>
-            <path d="m-21 54-35 38M20 54l-30 37" stroke="#b97655" stroke-width="14" stroke-linecap="round"/>
-            <path d="M-45 88 26-28" stroke="#d5b17a" stroke-width="7" stroke-linecap="round"/>
+          <g class="parallax-layer layer-plate" data-depth="0.95">
+            <path d="m800 767-32 18 13 29h38l13-29Z" fill="#f4f0e6"/>
+            <path d="M675 746Q800 700 925 746" fill="none" stroke="#f4f0e6" stroke-width="6" opacity=".72"/>
+            <path d="M691 731 632 900M909 731 968 900" stroke="#f4f0e6" stroke-width="7" opacity=".65"/>
           </g>
 
-          <g class="parallax-layer layer-umpire" data-depth="1.28" transform="translate(782 735)" filter="url(#softShadow)">
-            <ellipse cx="0" cy="150" rx="42" ry="11" fill="#000" opacity=".28"/>
-            <circle cx="0" cy="18" r="24" fill="#161b22"/>
-            <path d="M-30 48Q0 30 30 48L25 105H-25Z" fill="#1a2230"/>
-            <path d="m-16 100-24 48M16 100l24 48" stroke="#222b39" stroke-width="18" stroke-linecap="round"/>
+          <g class="parallax-layer layer-batter" data-depth="1.08">
+            <g transform="translate(965 556) rotate(-4)" filter="url(#softShadow)">
+              <ellipse cx="0" cy="218" rx="74" ry="18" fill="#000" opacity=".34"/>
+              <circle cx="-6" cy="18" r="31" fill="#ae7153"/>
+              <path d="M-33 11Q-7-19 34 4l-3 25h-63Z" fill="#BD3039"/>
+              <path d="M-36 55Q-6 35 39 57L31 145H-25Z" fill="url(#uniformWhite)"/>
+              <path d="m-13 140-55 74M22 140l67 66" stroke="#e9edf1" stroke-width="25" stroke-linecap="round"/>
+              <path d="m-24 67 78 37M30 67l47 24" stroke="#ae7153" stroke-width="18" stroke-linecap="round"/>
+              <path d="M46 98 168 28" stroke="#d7ad70" stroke-width="11" stroke-linecap="round"/>
+              <path d="M46 98 170 28" stroke="#fff0c4" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+            </g>
+          </g>
+
+          <g class="parallax-layer layer-contact" data-depth="0.84" data-focus="contact">
+            <g class="contact-burst" transform="translate(1008 646)">
+              <path d="M-74 5H-8M-58-15-4-3M-50 23-3 9" stroke="#fff0a8" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+              <circle class="hit-ball" cx="0" cy="0" r="10" fill="#fffdf1" stroke="#c9bfa6" stroke-width="2" filter="url(#ballGlow)"/>
+              <path d="M-4-7c4 2 7 5 9 10M-7 3c4-1 8 0 11 3" fill="none" stroke="#BD3039" stroke-width="1.4"/>
+            </g>
+          </g>
+
+          <g class="parallax-layer layer-catcher" data-depth="1.28">
+            <g transform="translate(755 525)" filter="url(#softShadow)">
+              <ellipse cx="0" cy="249" rx="112" ry="23" fill="#000" opacity=".42"/>
+              <circle cx="0" cy="27" r="35" fill="#111722"/>
+              <path d="M-30 12h60v38h-60Z" fill="none" stroke="#8c99aa" stroke-width="7"/>
+              <path d="M-50 70Q0 39 52 72L66 151Q0 183-68 151Z" fill="#BD3039"/>
+              <path d="M-36 75 0 158 37 76M-55 108h110" fill="none" stroke="#e1e5eb" stroke-width="7" opacity=".8"/>
+              <path d="m-52 140-76 91M55 140l84 87" stroke="#bd3039" stroke-width="31" stroke-linecap="round"/>
+              <path d="m-50 95-91 69M51 96l86 48" stroke="#d9dee5" stroke-width="20" stroke-linecap="round"/>
+              <ellipse cx="-147" cy="170" rx="31" ry="38" fill="#563b27" transform="rotate(-20 -147 170)"/>
+            </g>
+          </g>
+
+          <g class="parallax-layer layer-umpire" data-depth="1.52">
+            <g transform="translate(790 640)" filter="url(#softShadow)">
+              <ellipse cx="0" cy="355" rx="195" ry="36" fill="#000" opacity=".48"/>
+              <circle cx="0" cy="48" r="54" fill="#080b11"/>
+              <path d="M-45 20h90v58h-90Z" fill="none" stroke="#657081" stroke-width="10"/>
+              <path d="M-84 105Q0 62 87 108L130 264Q0 330-135 264Z" fill="url(#umpireBlack)"/>
+              <path d="m-94 205-110 142M95 205l118 138" stroke="#090d14" stroke-width="58" stroke-linecap="round"/>
+              <path d="m-74 122-115 110M77 122l120 103" stroke="#141b27" stroke-width="39" stroke-linecap="round"/>
+              <path d="M-126 139Q0 102 128 140" fill="none" stroke="#313c4b" stroke-width="12" opacity=".55"/>
+            </g>
           </g>
         </svg>
 
