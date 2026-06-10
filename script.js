@@ -66,22 +66,16 @@ if (stadiumScroll && scene && !matchMedia("(prefers-reduced-motion: reduce)").ma
     const progress = Math.min(1, Math.max(0, -rect.top / travel));
     const eased = progress * progress * (3 - 2 * progress);
 
-    scene.style.transform = `translateY(${eased * 20}%) scale(${0.9 + eased * 1.18})`;
+    scene.style.transform = `translate3d(0, ${eased * 1.5}%, 0) scale(${1 + eased * 0.42})`;
     layers.forEach((layer) => {
       const depth = Number(layer.dataset.depth || 0);
-      const rise = eased * depth * 205;
-      const spread = layer.classList.contains("layer-ground") ? 1 + eased * 0.42 : 1 + eased * depth * 0.08;
-      layer.style.transform = `translateY(${rise}px) scale(${spread})`;
-
-      if (layer.classList.contains("layer-ground")) {
-        layer.style.opacity = String(Math.max(0, 1 - progress * 1.45));
-      } else if (layer.classList.contains("layer-warning-track")) {
-        layer.style.opacity = String(Math.max(0.15, 1 - progress * 1.08));
-      }
+      const shift = eased * depth * 42;
+      const scale = 1 + eased * depth * 0.2;
+      layer.style.transform = `translate3d(0, ${shift}px, 0) scale(${scale})`;
     });
 
-    heroContent.style.opacity = String(Math.max(0, 1 - progress * 2.15));
-    heroContent.style.transform = `translateY(${progress * -80}px)`;
+    heroContent.style.opacity = String(Math.max(0, 1 - progress * 1.9));
+    heroContent.style.transform = `translate3d(0, ${progress * -60}px, 0)`;
     ticking = false;
   };
 
