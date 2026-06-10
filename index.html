@@ -31,46 +31,20 @@
   <main>
     <section class="stadium-scroll" aria-labelledby="hero-title">
       <div class="stadium-sticky">
-        <svg class="fenway-scene" viewBox="0 0 1000 667" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="field-title field-description">
-          <title id="field-title">Baseball stadium viewed from behind home plate</title>
-          <desc id="field-description">A bright stadium with home plate, infield dirt, grass, packed stands, roof, lights, and sky.</desc>
+        <svg class="fenway-scene" viewBox="0 0 667 240" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="field-title field-description">
+          <title id="field-title">Baseball player standing in a glowing stadium</title>
+          <desc id="field-description">A player viewed from behind at center field, surrounded by stadium lights, a crowd, and cinematic sparks.</desc>
           <defs>
-            <clipPath id="sky-mask">
-              <path d="M0 0H1000V242L920 218 835 204 750 207 665 218 575 226 500 229 425 226 335 218 250 207 165 204 80 218 0 242Z"/>
-            </clipPath>
-            <clipPath id="stands-mask">
-              <path d="M0 128 72 166 158 190 245 207 338 218 430 225 500 228 572 224 662 216 756 202 842 181 921 151 1000 113V455L920 447 834 441 748 436 660 432 570 429 500 428 430 429 340 432 250 436 166 441 80 447 0 455Z"/>
-            </clipPath>
-            <clipPath id="grass-mask">
-              <path d="M0 429 96 427 195 429 294 431 395 432 500 433 605 432 706 431 805 429 904 427 1000 429V544L900 526 800 511 700 500 600 493 500 491 400 493 300 500 200 511 100 526 0 544Z"/>
-            </clipPath>
-            <clipPath id="dirt-mask">
-              <path d="M0 468 86 471 174 478 260 489 350 504 430 518 500 526 570 518 650 504 740 489 826 478 914 471 1000 468V667H0Z"/>
-            </clipPath>
-            <clipPath id="plate-mask">
-              <path d="M438 484 562 484 613 667 387 667Z"/>
-              <path d="M0 507 122 514 250 530 370 555 438 582 387 667H0Z"/>
-              <path d="M1000 507 878 514 750 530 630 555 562 582 613 667H1000Z"/>
+            <clipPath id="player-mask">
+              <path d="M323 15 334 13 344 17 347 28 344 38 358 45 369 59 370 83 365 102 368 127 365 153 370 176 370 205 365 221 351 224 341 219 337 190 334 162 330 190 327 218 315 224 301 221 297 207 298 178 303 153 300 126 303 103 298 82 299 60 310 45 322 38 319 28Z"/>
             </clipPath>
           </defs>
 
-          <g class="parallax-layer photo-base" data-depth="0">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
+          <g class="parallax-layer photo-background" data-depth=".08">
+            <image href="holacomo-background.png" width="667" height="240" preserveAspectRatio="xMidYMid slice"/>
           </g>
-          <g class="parallax-layer layer-sky" data-depth=".05" clip-path="url(#sky-mask)">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
-          </g>
-          <g class="parallax-layer layer-stands" data-depth=".18" clip-path="url(#stands-mask)">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
-          </g>
-          <g class="parallax-layer layer-grass" data-depth=".34" clip-path="url(#grass-mask)">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
-          </g>
-          <g class="parallax-layer layer-infield" data-depth=".54" clip-path="url(#dirt-mask)">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
-          </g>
-          <g class="parallax-layer layer-plate" data-depth=".78" clip-path="url(#plate-mask)">
-            <image href="1000_F_1170596133_v4UrbtJeGUsVwGXbnJvNdMiRjGrJydd4.jpg" width="1000" height="667"/>
+          <g class="parallax-layer layer-player" data-depth=".82" clip-path="url(#player-mask)">
+            <image href="holacomo.jpg" width="667" height="240"/>
           </g>
         </svg>
 
