@@ -184,7 +184,7 @@ button { font: inherit; }
   .site-links.open { visibility: visible; opacity: 1; transform: none; }
   .site-links a { text-align: center; }
   .stadium-scroll { height: 300vh; }
-  .pitcher-image { transform: translateX(-55px) scale(1.04); }
+  .pitcher-image { transform: translateX(-24px) scale(.88); }
   .hero-content { justify-content: flex-end; padding-bottom: 110px; }
   .hero-content h1 { font-size: clamp(4rem, 18vw, 7.5rem); }
   .home-intro-grid, .skill-group { grid-template-columns: 1fr; gap: 20px; }
