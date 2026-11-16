@@ -31,12 +31,11 @@ document.querySelector("[data-site-footer]").innerHTML = `
         <div class="footer-brand"><img src="assets/krillion-mark.svg" alt=""><p>Small builds. Big ripple.</p></div>
         <nav class="footer-links" aria-label="Footer">${links}</nav>
         <div class="footer-links">
-          <!-- TODO(owner): Replace social links. -->
-          <a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:hello@example.com">Email</a>
+          <!-- TODO(owner): Replace email address. -->
+          <a href="https://github.com/artkinglin">GitHub</a><a href="https://linkedin.com/in/arthur-k-lin">LinkedIn</a><a href="mailto:hello@example.com">Email</a>
         </div>
       </div>
-      <!-- TODO(owner): Replace owner name. -->
-      <div class="footer-bottom">© <span data-year></span> [your name]. Built with care. Press Start to begin again.</div>
+      <div class="footer-bottom">© <span data-year></span> Arthur Lin. Built with care. Press Start to begin again.</div>
     </div>
   </footer>`;
 
