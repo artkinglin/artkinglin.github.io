@@ -1,0 +1,117 @@
+/* Krillion design tokens: retro pixel-art ocean arcade.
+   Single source of truth. Never hardcode colors, fonts or spacing elsewhere. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+  /* Palette sampled from the Krillion title-screen art */
+  --abyss: #000E2F;         /* page background (deepest water) */
+  --trench: #001840;        /* cards, header, footer */
+  --deep: #043E75;          /* borders, panels, hover surfaces */
+  --ocean: #0078B8;         /* mid-water blue, illustrations, secondary buttons */
+  --surf: #0AC9F6;          /* links, focus, primary water accent */
+  --shallows: #6EE5FA;      /* light highlights, hover text */
+  --foam: #DAF5FA;          /* primary text */
+  --sun: #F9FDDC;           /* rare bright highlight (sun, sparkles) */
+  --krill-pink: #FF8FB1;    /* primary accent: CTAs, the one thing to look at */
+  --glitch-magenta: #FF2E88;/* chromatic-aberration left offset only */
+  --glitch-cyan: #00E5FF;   /* chromatic-aberration right offset only */
+  --brine: #8FB8D0;         /* secondary text */
+
+  --bg: var(--abyss);
+  --surface: var(--trench);
+  --border: var(--deep);
+  --text: var(--foam);
+  --text-muted: var(--brine);
+  --accent: var(--krill-pink);
+  --accent-2: var(--surf);
+  --on-accent: var(--abyss);
+
+  /* Typography */
+  --font-display: "Press Start 2P", "Courier New", monospace;  /* headings, logo-like moments, SHORT text only */
+  --font-ui: "VT323", "Courier New", monospace;                /* nav, buttons, tags, labels, metadata */
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; /* paragraphs */
+
+  --text-xs: 1rem;          /* VT323 renders small: keep UI text >= 1.125rem in practice */
+  --text-ui: 1.375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-h3: 1rem;
+  --text-h2: clamp(1.1rem, 2.6vw, 1.75rem);
+  --text-h1: clamp(1.5rem, 5vw, 3rem);
+
+  /* Spacing: 8px grid, which keeps everything on the pixel grid */
+  --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px;
+  --space-6: 48px; --space-8: 64px; --space-12: 96px;
+  --px: 4px;                /* one "game pixel" for borders and shadows */
+
+  /* Shape: square corners only. Depth comes from hard offset shadows, never blur. */
+  --radius: 0;
+  --shadow-hard: 4px 4px 0 var(--abyss);
+  --shadow-accent: 4px 4px 0 var(--ocean);
+  --max-width: 1120px;
+  --steps: 4;               /* frames for stepped animations */
+  --duration: 600ms;
+}
+
+/* Daylight mode: the sunny surface of the same ocean */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #DAF5FA; --surface: #FFFFFF; --border: #001840;
+    --text: #001840; --text-muted: #043E75;
+    --accent: #C41E64; --accent-2: #005997; --on-accent: #FFFFFF;
+    --shadow-hard: 4px 4px 0 #001840;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #DAF5FA; --surface: #FFFFFF; --border: #001840;
+  --text: #001840; --text-muted: #043E75;
+  --accent: #C41E64; --accent-2: #005997; --on-accent: #FFFFFF;
+  --shadow-hard: 4px 4px 0 #001840;
+}
+
+/* ---- Reusable retro patterns ---- */
+img, canvas, svg.pixel { image-rendering: pixelated; }
+
+.glitch {                   /* chromatic-aberration title effect; use on H1 / hero text only */
+  font-family: var(--font-display);
+  color: #F3F0F9;
+  text-shadow: -2px 0 var(--glitch-magenta), 2px 0 var(--glitch-cyan);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.pixel-box {                /* panel / card with chunky 4px border and hard shadow */
+  background: var(--surface);
+  border: var(--px) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+}
+.pixel-box:hover { border-color: var(--accent-2); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--abyss); }
+
+.btn {                      /* primary button */
+  font-family: var(--font-ui); font-size: var(--text-ui); text-transform: uppercase;
+  background: var(--accent); color: var(--on-accent);
+  border: var(--px) solid var(--abyss); border-radius: var(--radius);
+  box-shadow: var(--shadow-accent); padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+.btn:hover { transform: translate(-2px, -2px); }
+.btn:active { transform: translate(4px, 4px); box-shadow: none; }  /* "press" feel */
+
+:focus-visible { outline: var(--px) solid var(--accent-2); outline-offset: var(--px); }
+
+.scanlines::after {         /* optional, very subtle CRT overlay; keep opacity <= 0.06 */
+  content: ""; position: fixed; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.06) 0 1px, transparent 1px 3px);
+}
+
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@keyframes rise { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-48px); opacity: 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+.bob   { animation: bob 1s steps(2) infinite; }      /* 2-frame sprite bob */
+.rise  { animation: rise 3s steps(12) infinite; }    /* bubbles */
+.blink { animation: blink 1s steps(1) infinite; }    /* cursor / "PRESS START" */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
