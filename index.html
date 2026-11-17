@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Krillion: a computer science portfolio and underwater exploration.">
+  <title>Krillion | Computer Science Portfolio</title>
+  <link rel="icon" href="assets/krillion-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="scanlines" data-zone="surface">
+  <a class="skip-link" href="#projects">Skip to projects</a>
+  <header class="site-header" data-header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-logo" href="#surface" aria-label="Krillion, return to surface"><img src="assets/krillion-mark.svg" alt=""></a>
+      <button class="menu-toggle btn-small" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+        <!-- TODO(owner): Replace unavailable professional links with real URLs. -->
+        <a href="#contact">Resume</a><a href="#contact">GitHub</a><a href="#contact">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+  <div class="depth-meter" data-depth-meter role="meter" aria-label="Depth" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0">
+    <span class="depth-meter__readout" data-depth-readout>0 M</span>
+    <span class="depth-meter__zone" data-depth-zone>SURFACE</span>
+    <span class="depth-meter__zone" data-depth-points>0 POINTS</span>
+    <span class="depth-meter__zone depth-next" data-depth-next>NEXT: PLANKTON 100 M</span>
+    <div class="depth-meter__track"><img data-depth-marker class="depth-meter__marker" src="assets/krillion-mark.svg" alt=""></div>
+  </div>
+  <div class="tier-notice label-mono" data-tier-notice aria-live="polite"></div>
+  <main>
+    <section class="hero zone--sky" id="surface" data-depth="0" aria-labelledby="hero-title">
+      <div class="sky-art" aria-hidden="true"><img class="cloud cloud-one drift" src="assets/cloud.svg" alt=""><img class="cloud cloud-two drift" src="assets/cloud.svg" alt=""><img class="sun sun-glow" src="assets/sun.svg" alt=""></div>
+      <div class="hero-title"><h1 id="hero-title" class="glitch--outline">KRILLION</h1><div class="subtitle">COMPUTER SCIENCE PORTFOLIO</div><!-- TODO(owner): Replace tagline with personal details. --><div class="hero-tag pixel-box">Software engineering · AI / ML · Exploration</div></div>
+      <div class="hero-water" aria-hidden="true"><img class="boat bob" src="assets/boat.svg" alt=""><img class="hero-krill swim" src="assets/krillion-mark.svg" alt=""></div>
+      <div class="hero-actions">
+        <details class="explore"><summary>▸ HOW TO EXPLORE</summary><div class="pixel-box"><p>Scroll to dive. The deeper you go, the more you find.</p></div></details>
+        <a class="btn-primary" href="#about">▼ BEGIN DESCENT ▼</a>
+        <div class="hero-meta"><span class="label-mono">2026 EDITION</span><div><a class="btn-small" href="#contact">RESUME</a> <a class="btn-small" href="#contact">GITHUB</a></div></div>
+      </div>
+    </section>
+    <div class="dither" style="--from:var(--panel-deep);--to:var(--water-1)" aria-hidden="true"></div>
+    <section class="zone zone--surface waypoint" id="plankton" data-depth="100" aria-labelledby="plankton-title"><div class="inner"><span class="eyebrow">100 M / 10 POINTS</span><h2 id="plankton-title">PLANKTON</h2><div class="pixel-box compact"><p>Welcome aboard. Scroll on for projects, experience, and a way to get in touch.</p></div></div></section>
+    <section class="zone zone--surface waypoint introduction" id="introduction" data-depth="150" aria-labelledby="intro-title"><div class="inner"><span class="eyebrow">150 M / 15 POINTS</span><h2 id="intro-title">TOO CLEVER</h2><div class="pixel-box compact"><p>A portfolio for the curious: a closer look at the ideas, tools, and work below.</p></div></div></section>
+    <div class="dither" style="--from:var(--water-1);--to:var(--water-2)" aria-hidden="true"></div>
+    <section class="zone zone--shallows" id="about" data-depth="300" aria-labelledby="about-title"><div class="rays" aria-hidden="true"></div><img class="decor bubbles rise" src="assets/bubble.svg" alt="" aria-hidden="true"><div class="inner"><span class="eyebrow">SCHOOLER / 300 M / 30 POINTS</span><h2 id="about-title">ABOUT ME<span class="accent">_</span></h2><!-- TODO(owner): Add real introduction, interests, specialization and experience. --><div class="pixel-box prose"><span class="label-mono">PLAYER PROFILE / PLACEHOLDER</span><p>Introduce yourself here: your background in computer science, the areas you specialize in, and the experience that shaped your work.</p><p>Add the kinds of problems you enjoy solving and what you hope to build next.</p></div></div></section>
+    <div class="dither" style="--from:var(--water-2);--to:var(--water-3)" aria-hidden="true"></div>
+    <section class="zone zone--twilight" id="projects" data-depth="600" aria-labelledby="projects-title"><img class="decor jelly bob" src="assets/jellyfish.svg" alt="" aria-hidden="true"><div class="inner"><span class="eyebrow">RARE / 600 M / 60 POINTS</span><h2 id="projects-title">SELECTED PROJECTS<span class="accent">_</span></h2><div class="pixel-box intro-panel"><p>The work behind the work. Each slot is ready for a real project, its technical choices, and its results.</p></div>
+      <!-- TODO(owner): Replace project placeholders with actual projects, screenshots, technologies, contributions, results and links. -->
+      <div class="projects-grid">
+        <article class="pixel-box project"><div class="project-art" aria-hidden="true"><span>&lt;/&gt;</span></div><div class="project-body"><span class="eyebrow">LEVEL 01 / PLACEHOLDER</span><h3>PROJECT TITLE</h3><p><strong>Problem:</strong> Describe the problem and who it helps.</p><p><strong>Implementation:</strong> Explain the architecture, your contribution, and the measurable result.</p><div class="tags"><span>TECHNOLOGY</span><span>LANGUAGE</span><span>TOOL</span></div><div class="project-links"><span class="btn-small unavailable">VIEW PROJECT · ADD LINK</span><span class="btn-small unavailable">SOURCE · ADD LINK</span></div></div></article>
+        <article class="pixel-box project"><div class="project-art art-two" aria-hidden="true"><span>[ + ]</span></div><div class="project-body"><span class="eyebrow">LEVEL 02 / PLACEHOLDER</span><h3>PROJECT TITLE</h3><p><strong>Problem:</strong> Describe the problem and who it helps.</p><p><strong>Implementation:</strong> Explain the architecture, your contribution, and the measurable result.</p><div class="tags"><span>TECHNOLOGY</span><span>LANGUAGE</span><span>TOOL</span></div><div class="project-links"><span class="btn-small unavailable">VIEW PROJECT · ADD LINK</span><span class="btn-small unavailable">SOURCE · ADD LINK</span></div></div></article>
+      </div></div></section>
+    <div class="transition-band" aria-hidden="true"><div class="dither" style="--from:var(--water-3);--to:var(--water-4)"></div><div class="dither" style="--from:var(--water-4);--to:var(--water-5)"></div></div>
+    <section class="zone zone--midnight" id="skills" data-depth="850" aria-labelledby="skills-title"><img class="decor squid bob" src="assets/squid.svg" alt="" aria-hidden="true"><img class="decor angler swim" src="assets/anglerfish.svg" alt="" aria-hidden="true"><div class="inner"><span class="eyebrow">DEEP CUT / 850 M / 85 POINTS</span><h2 id="skills-title">SKILLS &amp; EXPERIENCE<span class="accent">_</span></h2><!-- TODO(owner): Replace categories and experience with verified skills and history. --><div class="skill-grid"><div class="pixel-box skill-card"><span class="label-mono">01 / LANGUAGES</span><h3>Programming</h3><div class="segments" aria-hidden="true"></div><p>Add languages you use and the work that demonstrates them.</p></div><div class="pixel-box skill-card"><span class="label-mono">02 / BUILD</span><h3>Frameworks &amp; tools</h3><div class="segments" aria-hidden="true"></div><p>Add your frameworks, libraries, and development tools.</p></div><div class="pixel-box skill-card"><span class="label-mono">03 / INTELLIGENCE</span><h3>AI / ML</h3><div class="segments" aria-hidden="true"></div><p>Add relevant models, libraries, and technical methods.</p></div></div><div class="pixel-box experience"><span class="eyebrow">EXPERIENCE / PLACEHOLDER</span><h3>Work, research &amp; accomplishments</h3><p>Add a role, organization, dates, responsibilities, and evidence of your impact. Include research and technical accomplishments where relevant.</p></div></div></section>
+    <div class="transition-band deep" aria-hidden="true"><div class="dither" style="--from:var(--water-5);--to:var(--water-6)"></div><div class="dither" style="--from:var(--water-6);--to:var(--water-7)"></div></div>
+    <section class="zone zone--seabed" id="contact" data-depth="1000" aria-labelledby="contact-title"><div class="inner"><span class="eyebrow">ONE IN A KRILLION / 1,000 M / 100 POINTS</span><h2 id="contact-title">SAVE POINT<span class="accent">_</span></h2><!-- TODO(owner): Add real email, GitHub, LinkedIn, resume and owner name. --><div class="pixel-box contact-panel"><p>Thanks for making the dive. Add your contact details and resume here so visitors can get in touch.</p><ul class="contact-list"><li>EMAIL <span>ADD EMAIL</span></li><li>GITHUB <span>ADD PROFILE URL</span></li><li>LINKEDIN <span>ADD PROFILE URL</span></li><li>RESUME <span>ADD RESUME URL</span></li></ul></div><a class="btn-primary surface-button" href="#surface">▲ SURFACE</a><footer><span>© 2026 KRILLION. BUILT WITH CARE. YOU REACHED THE BOTTOM.</span></footer></div><div class="seabed-art" aria-hidden="true"><img src="assets/kelp.svg" alt=""><img src="assets/krillion-mark.svg" alt=""><img src="assets/bubble.svg" alt=""><img src="assets/krillion-mark.svg" alt=""><img src="assets/kelp.svg" alt=""></div></section>
+  </main>
+  <script src="script.js"></script>
+  <script src="depth.js"></script>
+</body>
+</html>
