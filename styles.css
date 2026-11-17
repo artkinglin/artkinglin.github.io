@@ -100,3 +100,13 @@ section { scroll-margin-top: var(--space-12); }
 
 .hero-actions .btn-small, .explore summary { background: var(--panel); }
 .explore summary { display: inline-block; padding: var(--space-1); }
+/* Continuous descent: each zone begins where the previous one ends. */
+.hero.zone--sky { background: linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-horizon) 62%, var(--water-0) 62%, var(--water-1) 100%); }
+.milestone-strip { background: var(--water-1); }
+main > .dither, .transition-band .dither { display: none; }
+.zone--shallows { background: linear-gradient(to bottom, var(--water-1), var(--water-2), var(--water-3)); }
+.zone--twilight { background: linear-gradient(to bottom, var(--water-3), var(--water-4)); }
+.transition-band { height: var(--space-6); padding: 0; background: linear-gradient(to bottom, var(--water-4), var(--water-5)); }
+.zone--midnight { background: linear-gradient(to bottom, var(--water-5), var(--water-6)); }
+.transition-band.deep { background: linear-gradient(to bottom, var(--water-6), var(--water-7)); }
+.zone--seabed { background: var(--water-7); }
