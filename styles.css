@@ -81,8 +81,9 @@ section { scroll-margin-top: var(--space-12); }
 .bubble-stream i:nth-child(11) { left: 87%; animation-delay: -7s; }
 .bubble-stream i:nth-child(12) { left: 95%; animation-delay: -1.5s; }
 @keyframes bubble-up { from { transform: translateY(0); } to { transform: translateY(calc(-100vh - var(--space-2))); } }
-.fish { position: absolute; left: -32px; width: 24px; height: 12px; fill: var(--fish-cyan); opacity: .65; shape-rendering: crispEdges; animation: fish-cross 28s steps(160) infinite; }
+.fish { position: absolute; left: -32px; width: 24px; height: 12px; fill: var(--angler); opacity: .85; shape-rendering: crispEdges; animation: fish-cross 28s steps(160) infinite; }
 .fish rect { fill: var(--water-7); }
 .fish-one { top: 18%; animation-delay: -3s; }.fish-two { top: 23%; animation-delay: -5s; }.fish-three { top: 28%; animation-delay: -7s; }.fish-four { top: 34%; animation-delay: -4s; }.fish-five { top: 39%; animation-delay: -6s; }.fish-six { top: 45%; animation-delay: -8s; }.fish-seven { top: 50%; animation-delay: -5.5s; }
 @keyframes fish-cross { to { transform: translateX(calc(100vw + 64px)); } }
 @media (prefers-reduced-motion: reduce) { .ocean-life { display: none; } }
+
