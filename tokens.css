@@ -1,117 +1,183 @@
-/* Krillion design tokens: retro pixel-art ocean arcade.
+/* Krillion design tokens: retro pixel-art ocean dive.
+   Colors sampled from reference-homepage.png and reference-tiers.png.
    Single source of truth. Never hardcode colors, fonts or spacing elsewhere. */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&family=VT323&display=swap");
 
 :root {
-  /* Palette sampled from the Krillion title-screen art */
-  --abyss: #000E2F;         /* page background (deepest water) */
-  --trench: #001840;        /* cards, header, footer */
-  --deep: #043E75;          /* borders, panels, hover surfaces */
-  --ocean: #0078B8;         /* mid-water blue, illustrations, secondary buttons */
-  --surf: #0AC9F6;          /* links, focus, primary water accent */
-  --shallows: #6EE5FA;      /* light highlights, hover text */
-  --foam: #DAF5FA;          /* primary text */
-  --sun: #F9FDDC;           /* rare bright highlight (sun, sparkles) */
-  --krill-pink: #FF8FB1;    /* primary accent: CTAs, the one thing to look at */
-  --glitch-magenta: #FF2E88;/* chromatic-aberration left offset only */
-  --glitch-cyan: #00E5FF;   /* chromatic-aberration right offset only */
-  --brine: #8FB8D0;         /* secondary text */
+  /* Sky and sun */
+  --sky-top: #90D7FC;
+  --sky-horizon: #EAF4FB;
+  --sun: #EBDAA4;
+  --cloud: #F0FAFD;
 
-  --bg: var(--abyss);
-  --surface: var(--trench);
-  --border: var(--deep);
+  /* Water depth ramp (surface to seabed), sampled from the tiers art */
+  --water-0: #0EC8F2;   /* waterline shimmer */
+  --water-1: #00B0E1;   /* just under the surface */
+  --water-2: #0379BC;
+  --water-3: #014180;
+  --water-4: #002B62;
+  --water-5: #011C4F;
+  --water-6: #000E31;
+  --water-7: #000923;   /* seabed */
+
+  /* UI colors */
+  --panel: #101D33;        /* buttons, cards, meter boxes */
+  --panel-deep: #060F1B;   /* hero bottom vignette, footer */
+  --surf: #0EC8F2;         /* primary UI accent: borders, links, focus, CTA frame */
+  --cyan-text: #3DD9F5;    /* subtitles and labels in cyan */
+  --foam: #DAF5FA;         /* primary text */
+  --brine: #93A6BE;        /* secondary text (grey-blue) */
+  --border-dim: #2A4466;   /* quiet borders on small outlined buttons */
+
+  /* Warm accents */
+  --krill-red: #F42053;    /* the krill (matches the logo artwork), squid, flag: the "living" accent. Use sparingly. */
+  --glitch-pink: #F0739D;  /* hero title stroke only */
+  --glitch-cyan: #3DD9F5;  /* hero title offset only */
+
+  /* Creature palette (for sprites and decoration only, never UI fills) */
+  --jelly: #5373E3; --jelly-light: #6DACF5; --jelly-dark: #3A4DB5;
+  --fish-cyan: #28DAFA; --angler: #2C3F5A;
+  --coral-red: #D0365F; --coral-pink: #E0609A; --coral-purple: #8B4FC9; --coral-blue: #2E4FBF;
+
+  /* Semantic */
+  --bg: var(--water-7);
+  --surface: var(--panel);
+  --border: var(--surf);
   --text: var(--foam);
   --text-muted: var(--brine);
-  --accent: var(--krill-pink);
-  --accent-2: var(--surf);
-  --on-accent: var(--abyss);
+  --accent: var(--surf);
+  --accent-warm: var(--krill-red);
 
   /* Typography */
-  --font-display: "Press Start 2P", "Courier New", monospace;  /* headings, logo-like moments, SHORT text only */
-  --font-ui: "VT323", "Courier New", monospace;                /* nav, buttons, tags, labels, metadata */
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; /* paragraphs */
-
-  --text-xs: 1rem;          /* VT323 renders small: keep UI text >= 1.125rem in practice */
-  --text-ui: 1.375rem;
-  --text-base: 1.0625rem;
-  --text-lg: 1.25rem;
+  --font-display: "Press Start 2P", "Courier New", monospace;
+  --font-ui: "VT323", "Courier New", monospace;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-xs: 1rem; --text-ui: 1.375rem; --text-base: 1.0625rem; --text-lg: 1.25rem;
   --text-h3: 1rem;
   --text-h2: clamp(1.1rem, 2.6vw, 1.75rem);
-  --text-h1: clamp(1.5rem, 5vw, 3rem);
+  --text-h1: clamp(1.75rem, 6vw, 4rem);
 
-  /* Spacing: 8px grid, which keeps everything on the pixel grid */
+  /* Spacing: 8px grid; --px is one "game pixel" */
   --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px;
   --space-6: 48px; --space-8: 64px; --space-12: 96px;
-  --px: 4px;                /* one "game pixel" for borders and shadows */
+  --px: 4px;
 
-  /* Shape: square corners only. Depth comes from hard offset shadows, never blur. */
+  /* Shape: square corners; hard offset shadows, never blur (exceptions: sun glow, krill glow, scanlines) */
   --radius: 0;
-  --shadow-hard: 4px 4px 0 var(--abyss);
-  --shadow-accent: 4px 4px 0 var(--ocean);
+  --shadow-hard: 4px 4px 0 var(--water-7);
   --max-width: 1120px;
-  --steps: 4;               /* frames for stepped animations */
-  --duration: 600ms;
 }
 
-/* Daylight mode: the sunny surface of the same ocean */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #DAF5FA; --surface: #FFFFFF; --border: #001840;
-    --text: #001840; --text-muted: #043E75;
-    --accent: #C41E64; --accent-2: #005997; --on-accent: #FFFFFF;
-    --shadow-hard: 4px 4px 0 #001840;
-  }
-}
-:root[data-theme="light"] {
-  --bg: #DAF5FA; --surface: #FFFFFF; --border: #001840;
-  --text: #001840; --text-muted: #043E75;
-  --accent: #C41E64; --accent-2: #005997; --on-accent: #FFFFFF;
-  --shadow-hard: 4px 4px 0 #001840;
-}
-
-/* ---- Reusable retro patterns ---- */
+/* ---- Retro patterns ---- */
 img, canvas, svg.pixel { image-rendering: pixelated; }
 
-.glitch {                   /* chromatic-aberration title effect; use on H1 / hero text only */
-  font-family: var(--font-display);
-  color: #F3F0F9;
-  text-shadow: -2px 0 var(--glitch-magenta), 2px 0 var(--glitch-cyan);
-  text-transform: uppercase;
-  line-height: 1.4;
+.glitch {                    /* solid glitch text */
+  font-family: var(--font-display); color: #F3F0F9; text-transform: uppercase; line-height: 1.4;
+  text-shadow: -2px 0 var(--glitch-pink), 2px 0 var(--glitch-cyan);
+}
+.glitch--outline {           /* HERO TITLE: hollow letters with pink stroke and cyan offset, as in the homepage reference */
+  font-family: var(--font-display); text-transform: uppercase; line-height: 1.3;
+  color: transparent; -webkit-text-stroke: 3px var(--glitch-pink);
+  text-shadow: 4px 0 0 var(--glitch-cyan), -2px 0 0 rgba(61, 217, 245, .35);
 }
 
-.pixel-box {                /* panel / card with chunky 4px border and hard shadow */
-  background: var(--surface);
-  border: var(--px) solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-hard);
+.pixel-box { background: var(--panel); border: var(--px) solid var(--border-dim); border-radius: var(--radius); box-shadow: var(--shadow-hard); }
+.pixel-box:hover { border-color: var(--surf); transform: translate(-2px, -2px); }
+
+.btn-primary {               /* BEGIN DESCENT style: dark fill, 4px cyan frame, arrows either side */
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  font-family: var(--font-ui); font-size: 1.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--foam);
+  background: var(--panel); border: var(--px) solid var(--surf); border-radius: var(--radius);
+  box-shadow: 0 var(--px) 0 var(--water-3); padding: var(--space-3) var(--space-6); cursor: pointer; width: min(100%, 610px);
 }
-.pixel-box:hover { border-color: var(--accent-2); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--abyss); }
-
-.btn {                      /* primary button */
-  font-family: var(--font-ui); font-size: var(--text-ui); text-transform: uppercase;
-  background: var(--accent); color: var(--on-accent);
-  border: var(--px) solid var(--abyss); border-radius: var(--radius);
-  box-shadow: var(--shadow-accent); padding: var(--space-1) var(--space-3);
-  cursor: pointer;
+.btn-primary:hover { background: #16294a; transform: translateY(-2px); }
+.btn-primary:active { transform: translateY(var(--px)); box-shadow: none; }
+.btn-small {                 /* THEMED PACKS style: small outlined chips */
+  font-family: var(--font-ui); font-size: var(--text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--brine);
+  background: transparent; border: 2px solid var(--border-dim); border-radius: var(--radius); padding: 6px 16px; cursor: pointer;
 }
-.btn:hover { transform: translate(-2px, -2px); }
-.btn:active { transform: translate(4px, 4px); box-shadow: none; }  /* "press" feel */
+.btn-small:hover { color: var(--foam); border-color: var(--surf); }
+.label-mono { font-family: var(--font-ui); font-size: var(--text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--brine); }
+.subtitle { font-family: var(--font-ui); font-size: 1.75rem; letter-spacing: .4em; text-transform: uppercase; color: var(--cyan-text); }
 
-:focus-visible { outline: var(--px) solid var(--accent-2); outline-offset: var(--px); }
+:focus-visible { outline: var(--px) solid var(--surf); outline-offset: var(--px); }
 
-.scanlines::after {         /* optional, very subtle CRT overlay; keep opacity <= 0.06 */
-  content: ""; position: fixed; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.06) 0 1px, transparent 1px 3px);
+/* ---- Atmosphere ---- */
+.scanlines::after {          /* subtle CRT lines over the whole page; opacity <= .08 */
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.07) 0 1px, transparent 1px 3px);
+}
+.sun-glow { box-shadow: 0 0 80px 40px rgba(235, 218, 164, .45); }          /* the only soft glow on the page besides creatures */
+.glow-red  { filter: drop-shadow(0 0 6px rgba(244, 32, 83, .8)); }          /* krill/squid glow */
+.glow-cyan { filter: drop-shadow(0 0 6px rgba(61, 217, 245, .7)); }         /* jellyfish, angler lure */
+.rays {                      /* light rays in the shallows: stepped diagonal bars that fade out. Put as first child of the zone, aria-hidden. */
+  position: absolute; inset: 0 0 auto 0; height: 60vh; pointer-events: none; opacity: .10;
+  background: repeating-linear-gradient(100deg, var(--water-0) 0 28px, transparent 28px 72px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 25%, rgba(0,0,0,.6) 25% 50%, rgba(0,0,0,.3) 50% 75%, transparent 75%);
+          mask-image: linear-gradient(to bottom, #000 0 25%, rgba(0,0,0,.6) 25% 50%, rgba(0,0,0,.3) 50% 75%, transparent 75%);
 }
 
+/* ---- One-page descent ---- */
+html { scroll-behavior: smooth; }
+.zone { position: relative; padding: var(--space-12) var(--space-3); overflow: hidden; }
+.zone > .inner { position: relative; max-width: var(--max-width); margin: 0 auto; }
+.zone--sky      { background: linear-gradient(to bottom, var(--sky-top) 0 20%, var(--sky-horizon) 20% 100%); } /* hero sky (banded in 2 steps; add pixel clouds on top) */
+.zone--surface  { background: var(--water-1); }
+.zone--shallows { background: var(--water-2); }
+.zone--twilight { background: var(--water-3); }
+.zone--midnight { background: var(--water-5); }
+.zone--seabed   { background: var(--water-7); }
+/* RULE: all paragraphs and long text sit inside .pixel-box panels, so contrast never depends on the water color. */
+
+.hero { position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; overflow: hidden; }
+.hero::after {               /* bottom vignette: water fades to near-black behind the CTA, in 4 stepped bands */
+  content: ""; position: absolute; inset: 55% 0 0 0; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 0 25%, rgba(6,15,27,.35) 25% 50%, rgba(6,15,27,.7) 50% 75%, var(--panel-deep) 75%);
+}
+.hero > * { position: relative; z-index: 1; }
+
+.dither {                    /* checkerboard dither between zones: set --from (above) and --to (below) */
+  height: 16px;
+  background: conic-gradient(var(--from) 25%, var(--to) 0 50%, var(--from) 0 75%, var(--to) 0) 0 0 / 8px 8px;
+}
+
+/* ---- Depth meter: fixed on the RIGHT edge, a ruler with a krill marker ---- */
+.depth-meter {
+  position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
+  height: min(72vh, 580px); z-index: 50;
+  display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-1);
+  font-family: var(--font-ui); font-size: var(--text-ui); color: var(--foam);
+}
+.depth-meter__readout, .depth-meter__zone { background: var(--panel); border: 2px solid var(--border-dim); padding: 0 var(--space-1); white-space: nowrap; }
+.depth-meter__zone { font-size: var(--text-xs); letter-spacing: .1em; color: var(--cyan-text); }
+.depth-meter__track { position: relative; flex: 1; width: 28px; }
+.depth-meter__track::before {  /* ruler ticks: short every 4%, long every 20% */
+  content: ""; position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(to bottom, var(--surf) 0 2px, transparent 2px 20%) right / 24px 100% no-repeat,
+    repeating-linear-gradient(to bottom, var(--brine) 0 2px, transparent 2px 4%) right / 12px 100% no-repeat;
+  opacity: .8;
+}
+.depth-meter__marker { position: absolute; right: 18px; top: 0; width: 32px; height: auto; transform: translateY(-50%); image-rendering: pixelated; }
+@media (max-width: 640px) {
+  .depth-meter { right: 4px; height: 50vh; }
+  .depth-meter__zone { display: none; }
+  .depth-meter__track { width: 20px; }
+  .depth-meter__marker { width: 24px; }
+}
+
+/* ---- Motion: stepped only ---- */
 @keyframes bob { 50% { transform: translateY(-4px); } }
 @keyframes rise { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-48px); opacity: 0; } }
 @keyframes blink { 50% { opacity: 0; } }
-.bob   { animation: bob 1s steps(2) infinite; }      /* 2-frame sprite bob */
-.rise  { animation: rise 3s steps(12) infinite; }    /* bubbles */
-.blink { animation: blink 1s steps(1) infinite; }    /* cursor / "PRESS START" */
-
+@keyframes drift { to { transform: translateX(40px); } }
+@keyframes swim { to { transform: translateX(-120px); } }
+.bob { animation: bob 1.2s steps(2) infinite; }
+.rise { animation: rise 3s steps(12) infinite; }
+.blink { animation: blink 1s steps(1) infinite; }
+.drift { animation: drift 12s steps(24) infinite alternate; }
+.swim { animation: swim 20s steps(40) infinite alternate; }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
 }
