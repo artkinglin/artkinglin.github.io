@@ -112,6 +112,6 @@ main > .dither, .transition-band .dither { display: none; }
 .zone--seabed { background: var(--water-7); }
 
 /* Small stepped waves break the surface around the boat. */
-.hero-water::before { inset: auto 0 0; height: var(--space-2); animation: surface-wave 3s steps(2) infinite alternate; }
-@keyframes surface-wave { from { transform: translateY(0); } to { transform: translateY(var(--px)); } }
+.hero-water::before { inset: auto 0 0; height: var(--space-4); animation: surface-wave 3s steps(3) infinite alternate; }
+@keyframes surface-wave { from { transform: translateY(0); } to { transform: translateY(var(--space-1)); } }
 @media (prefers-reduced-motion: reduce) { .hero-water::before { animation: none; } }
