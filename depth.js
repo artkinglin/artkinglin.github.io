@@ -1,4 +1,4 @@
-﻿// Continuous scroll depth and fixed, non-cumulative tier rewards.
+// Continuous scroll depth and fixed, non-cumulative tier rewards.
 (() => {
   const tiers = [
     { id: 'surface', depth: 0, label: 'SURFACE', points: 0 },
@@ -32,6 +32,9 @@
     const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     const progress = maxScroll ? Math.max(0, Math.min(window.scrollY / maxScroll, 1)) : 0;
     const depth = progress * 1000;
+    document.documentElement.style.setProperty('--fish-darkness', (progress * 100) + '%');
+    const hero = document.querySelector('#surface');
+    document.documentElement.style.setProperty('--water-screen-top', Math.max(0, Math.min(window.innerHeight, hero.offsetHeight * 0.62 - window.scrollY)) + 'px');
     let index = 0;
     while (index < tiers.length - 1 && depth >= tiers[index + 1].depth) index++;
     const tier = tiers[index], following = tiers[index + 1];

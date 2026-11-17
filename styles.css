@@ -87,3 +87,13 @@ section { scroll-margin-top: var(--space-12); }
 @keyframes fish-cross { to { transform: translateX(calc(100vw + 64px)); } }
 @media (prefers-reduced-motion: reduce) { .ocean-life { display: none; } }
 
+/* Portfolio and descent refinements */
+.milestone-strip { display: flex; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--water-1); color: var(--water-7); font: var(--text-ui) var(--font-ui); }
+.featured-project { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(200px, 1fr) 2fr; }
+.featured-project .project-art { border-bottom: 0; border-right: var(--px) solid var(--border-dim); }
+.project-more { margin-top: var(--space-3); }
+.contact-list a { color: var(--cyan-text); overflow-wrap: anywhere; }
+.tier-explanation { position: fixed; right: var(--space-2); bottom: var(--space-1); z-index: 50; background: var(--panel); padding: 0 var(--space-1); color: var(--foam); }
+.ocean-life { clip-path: inset(var(--water-screen-top, 62vh) 0 0 0); }
+.fish { fill: color-mix(in srgb, var(--angler), black var(--fish-darkness, 0%)); opacity: .9; }
+@media (max-width: 640px) { .featured-project { display: flex; }.featured-project .project-art { border-right: 0; border-bottom: var(--px) solid var(--border-dim); }.tier-explanation { display: none; } }
