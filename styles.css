@@ -64,3 +64,25 @@ section { scroll-margin-top: var(--space-12); }
 .depth-milestone { position: absolute; right: 0; width: var(--space-2); height: var(--px); background: var(--brine); transform: translateY(-50%); }
 .depth-milestone.is-active { width: var(--space-3); height: var(--space-1); background: var(--cyan-text); box-shadow: var(--shadow-hard); }
 .depth-meter__marker { z-index: 1; }
+/* A quiet, non-interactive layer of ocean life stays behind the content. */
+.ocean-life { position: fixed; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.bubble-stream, .fish-school { position: absolute; inset: 0; }
+.bubble-stream i { position: absolute; bottom: calc(-1 * var(--space-1)); width: var(--space-1); height: var(--space-1); border: 2px solid var(--cyan-text); opacity: .48; animation: bubble-up 12s steps(80) infinite; }
+.bubble-stream i:nth-child(1) { left: 3%; animation-delay: -1s; }
+.bubble-stream i:nth-child(2) { left: 12%; animation-delay: -8s; }
+.bubble-stream i:nth-child(3) { left: 21%; animation-delay: -4s; }
+.bubble-stream i:nth-child(4) { left: 29%; animation-delay: -10s; }
+.bubble-stream i:nth-child(5) { left: 38%; animation-delay: -6s; }
+.bubble-stream i:nth-child(6) { left: 46%; animation-delay: -2s; }
+.bubble-stream i:nth-child(7) { left: 55%; animation-delay: -9s; }
+.bubble-stream i:nth-child(8) { left: 63%; animation-delay: -5s; }
+.bubble-stream i:nth-child(9) { left: 71%; animation-delay: -11s; }
+.bubble-stream i:nth-child(10) { left: 79%; animation-delay: -3s; }
+.bubble-stream i:nth-child(11) { left: 87%; animation-delay: -7s; }
+.bubble-stream i:nth-child(12) { left: 95%; animation-delay: -1.5s; }
+@keyframes bubble-up { from { transform: translateY(0); } to { transform: translateY(calc(-100vh - var(--space-2))); } }
+.fish { position: absolute; left: -32px; width: 24px; height: 12px; fill: var(--fish-cyan); opacity: .65; shape-rendering: crispEdges; animation: fish-cross 28s steps(160) infinite; }
+.fish rect { fill: var(--water-7); }
+.fish-one { top: 18%; animation-delay: -3s; }.fish-two { top: 23%; animation-delay: -5s; }.fish-three { top: 28%; animation-delay: -7s; }.fish-four { top: 34%; animation-delay: -4s; }.fish-five { top: 39%; animation-delay: -6s; }.fish-six { top: 45%; animation-delay: -8s; }.fish-seven { top: 50%; animation-delay: -5.5s; }
+@keyframes fish-cross { to { transform: translateX(calc(100vw + 64px)); } }
+@media (prefers-reduced-motion: reduce) { .ocean-life { display: none; } }
