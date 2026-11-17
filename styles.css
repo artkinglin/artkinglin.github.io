@@ -1,4 +1,4 @@
-﻿* { box-sizing: border-box; }
+* { box-sizing: border-box; }
 body { margin: 0; background: var(--water-7); color: var(--foam); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; }
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--cyan-text); }
@@ -17,7 +17,7 @@ section { scroll-margin-top: var(--space-12); }
 .nav-links { display: flex; align-items: center; gap: var(--space-3); font: var(--text-ui) var(--font-ui); text-transform: uppercase; }
 .nav-links a { padding: var(--space-1) 0; }
 .menu-toggle { display: none; min-height: 44px; }
-.hero { min-height: max(720px, 100svh); text-align: center; background: linear-gradient(to bottom, var(--sky-top) 0 20%, var(--sky-horizon) 20% 62%, var(--water-3) 62% 73%, var(--water-4) 73% 80%, var(--panel-deep) 80%); display: block; }
+.hero { min-height: max(720px, 100svh); text-align: center; background: linear-gradient(to bottom, var(--sky-top) 0 20%, var(--sky-horizon) 20% 62%, var(--water-1) 62% 100%); display: block; }
 .hero::after { display: none; }
 .sky-art { position: absolute; inset: 0; pointer-events: none; }
 .cloud { position: absolute; width: 208px; opacity: .85; }
@@ -59,7 +59,7 @@ section { scroll-margin-top: var(--space-12); }
 @media (max-width: 960px) { .nav-links { gap: var(--space-2); }.skill-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .zone { padding: var(--space-6) 64px var(--space-6) var(--space-2); }.menu-toggle { display: block; }.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--panel-deep); padding: var(--space-2); flex-direction: column; align-items: stretch; gap: 0; border-bottom: var(--px) solid var(--border-dim); }.nav-links.open { display: flex; }.nav-links a { padding: var(--space-1); min-height: 44px; }.projects-grid { grid-template-columns: 1fr; }.hero-title { padding: 0 var(--space-6); top: 20%; }.hero-title h1 { -webkit-text-stroke-width: 1px; }.hero-title .subtitle { letter-spacing: .08em; }.cloud { width: 104px; }.sun { width: 44px; }.hero-actions { width: calc(100% - 80px); }.hero-meta { flex-wrap: wrap; }.pixel-box { padding: var(--space-2); }.project { padding: 0; }.project-body { padding: var(--space-2); }.depth-meter__marker { width: 32px; }.decor { opacity: .5; }.zone--seabed { padding-bottom: 160px; }.contact-list li { flex-direction: column; gap: 0; } }
 .hero-water { clip-path: none; background: transparent; }
-.hero-water::before { content: ""; position: absolute; inset: 0; background: var(--water-3); clip-path: polygon(0 40%, 12% 40%, 12% 70%, 25% 70%, 25% 30%, 39% 30%, 39% 70%, 53% 70%, 53% 40%, 70% 40%, 70% 10%, 83% 10%, 83% 50%, 100% 50%, 100% 100%, 0 100%); }
+.hero-water::before { content: ""; position: absolute; inset: 0; background: var(--water-0); clip-path: polygon(0 40%, 12% 40%, 12% 70%, 25% 70%, 25% 30%, 39% 30%, 39% 70%, 53% 70%, 53% 40%, 70% 40%, 70% 10%, 83% 10%, 83% 50%, 100% 50%, 100% 100%, 0 100%); }
 /* Fixed milestone marks remain visible ahead of the moving krill. */
 .depth-milestone { position: absolute; right: 0; width: var(--space-2); height: var(--px); background: var(--brine); transform: translateY(-50%); }
 .depth-milestone.is-active { width: var(--space-3); height: var(--space-1); background: var(--cyan-text); box-shadow: var(--shadow-hard); }
@@ -97,3 +97,6 @@ section { scroll-margin-top: var(--space-12); }
 .ocean-life { clip-path: inset(var(--water-screen-top, 62vh) 0 0 0); }
 .fish { fill: color-mix(in srgb, var(--angler), black var(--fish-darkness, 0%)); opacity: .9; }
 @media (max-width: 640px) { .featured-project { display: flex; }.featured-project .project-art { border-right: 0; border-bottom: var(--px) solid var(--border-dim); }.tier-explanation { display: none; } }
+
+.hero-actions .btn-small, .explore summary { background: var(--panel); }
+.explore summary { display: inline-block; padding: var(--space-1); }
