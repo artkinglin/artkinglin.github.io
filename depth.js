@@ -1,6 +1,6 @@
-﻿// Scroll-driven depth meter, interpolated between real section positions.
+﻿// Continuous scroll depth and fixed, non-cumulative tier rewards.
 (() => {
-  const zones = [
+  const tiers = [
     { id: 'surface', depth: 0, label: 'SURFACE', points: 0 },
     { id: 'plankton', depth: 100, label: 'PLANKTON', points: 10 },
     { id: 'introduction', depth: 150, label: 'TOO CLEVER', points: 15 },
@@ -16,29 +16,41 @@
   const points = meter.querySelector('[data-depth-points]');
   const next = meter.querySelector('[data-depth-next]');
   const marker = meter.querySelector('[data-depth-marker]');
+  const track = meter.querySelector('.depth-meter__track');
   const notice = document.querySelector('[data-tier-notice]');
+  const milestones = tiers.slice(1).map(tier => {
+    const tick = document.createElement('span');
+    tick.className = 'depth-milestone';
+    tick.style.top = (tier.depth / 10) + '%';
+    tick.setAttribute('aria-hidden', 'true');
+    track.appendChild(tick);
+    return tick;
+  });
   let ticking = false, current = null, initialized = false;
   function update() {
     ticking = false;
     const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    const position = Math.max(0, Math.min(window.scrollY, maxScroll));
-    const anchors = zones.map((zone, index) => ({ ...zone, position: Math.min(maxScroll, Math.max(0, document.getElementById(zone.id).offsetTop - (index ? 80 : 0))) }));
+    const progress = maxScroll ? Math.max(0, Math.min(window.scrollY / maxScroll, 1)) : 0;
+    const depth = progress * 1000;
     let index = 0;
-    while (index < anchors.length - 1 && position >= anchors[index + 1].position) index++;
-    const zone = anchors[index], following = anchors[index + 1];
-    const fraction = following && following.position > zone.position ? (position - zone.position) / (following.position - zone.position) : 0;
-    const depth = following ? Math.round((zone.depth + fraction * (following.depth - zone.depth)) / 10) * 10 : 1000;
-    readout.textContent = depth + ' M'; label.textContent = zone.label; points.textContent = zone.points + ' POINTS';
+    while (index < tiers.length - 1 && depth >= tiers[index + 1].depth) index++;
+    const tier = tiers[index], following = tiers[index + 1];
+    const displayedDepth = Math.floor(depth / 10) * 10;
+    readout.textContent = displayedDepth + ' M';
+    label.textContent = tier.label;
+    points.textContent = tier.points + ' POINTS';
     next.textContent = following ? 'NEXT: ' + following.label + ' ' + following.depth + ' M' : 'MAX DEPTH';
-    marker.style.top = (depth / 10) + '%';
-    meter.setAttribute('aria-valuenow', String(depth));
-    meter.setAttribute('aria-valuetext', depth + ' meters, ' + zone.label + ', ' + zone.points + ' points' + (following ? '; next: ' + following.label + ' at ' + following.depth + ' meters' : ''));
-    document.body.dataset.zone = zone.id;
-    if (initialized && current !== zone.id && zone.depth > 0 && notice) {
-      notice.textContent = 'TIER: ' + zone.label + ' / ' + zone.points + ' POINTS';
+    marker.style.top = (progress * 100) + '%';
+    milestones.forEach((tick, i) => tick.classList.toggle('is-active', i === index - 1));
+    meter.setAttribute('aria-valuenow', String(displayedDepth));
+    meter.setAttribute('aria-valuetext', displayedDepth + ' meters, ' + tier.label + ', ' + tier.points + ' points' + (following ? '; next: ' + following.label + ' at ' + following.depth + ' meters' : ''));
+    document.body.dataset.zone = tier.id;
+    if (initialized && current !== tier.id && notice) {
+      notice.textContent = 'TIER: ' + tier.label + ' / ' + tier.points + ' POINTS';
       notice.classList.remove('show'); void notice.offsetWidth; notice.classList.add('show');
     }
-    current = zone.id; initialized = true;
+    current = tier.id;
+    initialized = true;
   }
   function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', schedule, { passive: true });
@@ -46,4 +58,3 @@
   window.addEventListener('load', schedule);
   update();
 })();
-
