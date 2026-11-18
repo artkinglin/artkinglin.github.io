@@ -115,3 +115,8 @@ main > .dither, .transition-band .dither { display: none; }
 .hero-water::before { inset: auto 0 0; height: var(--space-4); animation: surface-wave 3s steps(3) infinite alternate; }
 @keyframes surface-wave { from { transform: translateY(0); } to { transform: translateY(var(--space-1)); } }
 @media (prefers-reduced-motion: reduce) { .hero-water::before { animation: none; } }
+/* Project illustrations and optional technical detail. */
+.cover-art { width: min(80%, 256px); height: auto; image-rendering: pixelated; }
+.project-details { border-top: 2px solid var(--border-dim); border-bottom: 2px solid var(--border-dim); margin: var(--space-2) 0; }
+.project-details summary { cursor: pointer; padding: var(--space-1) 0; color: var(--cyan-text); font: var(--text-ui) var(--font-ui); letter-spacing: .08em; }
+.project-details p { margin: var(--space-1) 0 var(--space-2); }
