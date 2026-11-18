@@ -39,6 +39,8 @@
     const progress = maxScroll ? Math.max(0, Math.min(window.scrollY / maxScroll, 1)) : 0;
     const depth = progress * 1000;
     document.documentElement.style.setProperty('--fish-darkness', (progress * 100) + '%');
+    document.documentElement.style.setProperty('--parallax-fish', Math.round(progress * 48 / 4) * 4 + 'px');
+    document.documentElement.style.setProperty('--parallax-rays', Math.round(progress * 32 / 4) * 4 + 'px');
     const hero = document.querySelector('#surface');
     document.documentElement.style.setProperty('--water-screen-top', Math.max(0, Math.min(window.innerHeight, hero.offsetHeight * 0.62 - window.scrollY)) + 'px');
     let index = 0;

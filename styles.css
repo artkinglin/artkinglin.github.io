@@ -128,3 +128,16 @@ main > .dither, .transition-band .dither { display: none; }
 .depth-milestone span { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); display: none; white-space: nowrap; padding: var(--space-1); background: var(--panel); color: var(--foam); font: var(--text-xs) var(--font-ui); }
 .depth-milestone:hover span, .depth-milestone:focus-visible span { display: block; }
 .depth-meter__marker { pointer-events: none; }
+.currently-exploring { max-width: 760px; margin-top: var(--space-3); }
+.currently-exploring .label-mono { color: var(--cyan-text); }
+.currently-exploring p { margin: var(--space-1) 0 0; }
+.boat.departing { animation: boat-departure 1.5s steps(8) forwards; }
+@keyframes boat-departure { to { transform: translateY(calc(-1 * var(--space-8))); opacity: 0; } }
+.fish-school { transform: translateY(var(--parallax-fish, 0px)); }
+.rays { transform: translateY(var(--parallax-rays, 0px)); }
+.awaiting-reveal { opacity: 0; }
+.awaiting-reveal.is-revealed { opacity: 1; transition: opacity .6s steps(4); }
+.save-heading { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-4); }
+.save-heading h2 { margin: 0; }
+.save-icon { width: var(--space-4); height: var(--space-4); flex: none; }
+@media (prefers-reduced-motion: reduce) { .fish-school, .rays { transform: none; } .awaiting-reveal { opacity: 1; } }
