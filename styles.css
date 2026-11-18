@@ -120,3 +120,11 @@ main > .dither, .transition-band .dither { display: none; }
 .project-details { border-top: 2px solid var(--border-dim); border-bottom: 2px solid var(--border-dim); margin: var(--space-2) 0; }
 .project-details summary { cursor: pointer; padding: var(--space-1) 0; color: var(--cyan-text); font: var(--text-ui) var(--font-ui); letter-spacing: .08em; }
 .project-details p { margin: var(--space-1) 0 var(--space-2); }
+/* Milestone links remain separate from the current depth meter. */
+.depth-milestone { display: block; width: var(--space-4); height: 24px; background: transparent; transform: translateY(-50%); }
+.depth-milestone::after { content: ""; position: absolute; right: 0; top: 50%; width: var(--space-2); height: var(--px); background: var(--brine); transform: translateY(-50%); }
+.depth-milestone.is-active { width: var(--space-4); height: 24px; background: transparent; box-shadow: none; }
+.depth-milestone.is-active::after { width: var(--space-3); height: var(--space-1); background: var(--cyan-text); box-shadow: var(--shadow-hard); }
+.depth-milestone span { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); display: none; white-space: nowrap; padding: var(--space-1); background: var(--panel); color: var(--foam); font: var(--text-xs) var(--font-ui); }
+.depth-milestone:hover span, .depth-milestone:focus-visible span { display: block; }
+.depth-meter__marker { pointer-events: none; }

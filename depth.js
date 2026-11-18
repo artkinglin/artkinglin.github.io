@@ -19,10 +19,16 @@
   const track = meter.querySelector('.depth-meter__track');
   const notice = document.querySelector('[data-tier-notice]');
   const milestones = tiers.slice(1).map(tier => {
-    const tick = document.createElement('span');
+    const tick = document.createElement('a');
     tick.className = 'depth-milestone';
     tick.style.top = (tier.depth / 10) + '%';
-    tick.setAttribute('aria-hidden', 'true');
+    const target = tier.depth <= 150 ? 'early-descent' : tier.id;
+    tick.href = '#' + target;
+    tick.setAttribute('aria-label', tier.label + ', ' + tier.depth + ' meters milestone; jump to ' + (tier.depth <= 150 ? 'early descent' : target));
+    tick.title = tier.label + ' / ' + tier.depth + ' M';
+    const text = document.createElement('span');
+    text.textContent = tier.label + ' / ' + tier.depth + ' M';
+    tick.appendChild(text);
     track.appendChild(tick);
     return tick;
   });
@@ -45,8 +51,8 @@
     next.textContent = following ? 'NEXT: ' + following.label + ' ' + following.depth + ' M' : 'MAX DEPTH';
     marker.style.top = (progress * 100) + '%';
     milestones.forEach((tick, i) => tick.classList.toggle('is-active', i === index - 1));
-    meter.setAttribute('aria-valuenow', String(displayedDepth));
-    meter.setAttribute('aria-valuetext', displayedDepth + ' meters, ' + tier.label + ', ' + tier.points + ' points' + (following ? '; next: ' + following.label + ' at ' + following.depth + ' meters' : ''));
+    readout.setAttribute('aria-valuenow', String(displayedDepth));
+    readout.setAttribute('aria-valuetext', displayedDepth + ' meters, ' + tier.label + ', ' + tier.points + ' points' + (following ? '; next: ' + following.label + ' at ' + following.depth + ' meters' : ''));
     document.body.dataset.zone = tier.id;
     if (initialized && current !== tier.id && notice) {
       notice.textContent = 'TIER: ' + tier.label + ' / ' + tier.points + ' POINTS';

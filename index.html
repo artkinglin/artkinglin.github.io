@@ -22,12 +22,12 @@
       </div>
     </nav>
   </header>
-  <div class="depth-meter" data-depth-meter role="meter" aria-label="Depth" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0">
-    <span class="depth-meter__readout" data-depth-readout>0 M</span>
+  <div class="depth-meter" data-depth-meter>
+    <span class="depth-meter__readout" data-depth-readout role="meter" aria-label="Depth" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0">0 M</span>
     <span class="depth-meter__zone" data-depth-zone>SURFACE</span>
     <span class="depth-meter__zone" data-depth-points>0 POINTS</span>
     <span class="depth-meter__zone depth-next" data-depth-next>NEXT: PLANKTON 100 M</span>
-    <div class="depth-meter__track"><img data-depth-marker class="depth-meter__marker" src="assets/krillion-mark.svg" alt=""></div>
+    <nav class="depth-meter__track" aria-label="Depth milestones"><img data-depth-marker class="depth-meter__marker" src="assets/krillion-mark.svg" alt=""></nav>
   </div>
   <div class="tier-notice label-mono" data-tier-notice aria-live="polite"></div>
   <div class="ocean-life" aria-hidden="true">
@@ -56,7 +56,7 @@
       </div>
     </section>
     <div class="dither" style="--from:var(--water-1);--to:var(--water-1)" aria-hidden="true"></div>
-    <div class="milestone-strip" aria-hidden="true"><span>100 M / PLANKTON</span><span>150 M / TOO CLEVER</span></div>
+    <div class="milestone-strip" id="early-descent" aria-hidden="true"><span>100 M / PLANKTON</span><span>150 M / TOO CLEVER</span></div>
     <div class="dither" style="--from:var(--water-1);--to:var(--water-2)" aria-hidden="true"></div>
     <section class="zone zone--shallows" id="about" data-depth="300" aria-labelledby="about-title"><div class="rays" aria-hidden="true"></div><img class="decor bubbles rise" src="assets/bubble.svg" alt="" aria-hidden="true"><div class="inner"><span class="eyebrow">SCHOOLER / TIER VALUE: 30 POINTS</span><h2 id="about-title">ABOUT ME<span class="accent">_</span></h2><div class="pixel-box prose"><span class="label-mono">PLAYER PROFILE / ARTHUR LIN</span><p>I'm Arthur, a Computer Science student at the University of Massachusetts Amherst. I work across backend engineering and machine learning, from clinical APIs to computer vision and hardware-aware models.</p><p>My work spans clinical data systems, medical image analysis, and object detection.</p><p>I'm pursuing a B.S. in Computer Science, expected May 2028.</p></div></div></section>
     <div class="dither" style="--from:var(--water-2);--to:var(--water-3)" aria-hidden="true"></div>
